@@ -1,0 +1,316 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		97E9B2CE148EA477001D1D01 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97E9B2CD148EA477001D1D01 /* Cocoa.framework */; };
+		97E9B2D8148EA477001D1D01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 97E9B2D6148EA477001D1D01 /* InfoPlist.strings */; };
+		97E9B2DA148EA477001D1D01 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E9B2D9148EA477001D1D01 /* main.m */; };
+		97E9B2DE148EA477001D1D01 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 97E9B2DC148EA477001D1D01 /* Credits.rtf */; };
+		97E9B2E1148EA477001D1D01 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E9B2E0148EA477001D1D01 /* AppDelegate.m */; };
+		97E9B2E4148EA477001D1D01 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97E9B2E2148EA477001D1D01 /* MainMenu.xib */; };
+		97E9B2ED148EA512001D1D01 /* CheckSpelling.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 97E9B2EA148EA512001D1D01 /* CheckSpelling.pdf */; };
+		97E9B2EE148EA512001D1D01 /* VaraiableBrowserPane.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 97E9B2EB148EA512001D1D01 /* VaraiableBrowserPane.pdf */; };
+		97E9B2EF148EA512001D1D01 /* VariableCalculationBrowserPane.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 97E9B2EC148EA512001D1D01 /* VariableCalculationBrowserPane.pdf */; };
+		97E9B2F2148EA568001D1D01 /* WILLTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E9B2F1148EA568001D1D01 /* WILLTabView.m */; };
+		97FFDC96148EB80E00D32D72 /* navBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 97FFDC95148EB80E00D32D72 /* navBar.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		97E9B2C9148EA477001D1D01 /* WILLTabView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WILLTabView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		97E9B2CD148EA477001D1D01 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		97E9B2D0148EA477001D1D01 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		97E9B2D1148EA477001D1D01 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		97E9B2D2148EA477001D1D01 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		97E9B2D5148EA477001D1D01 /* WILLTabView-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WILLTabView-Info.plist"; sourceTree = "<group>"; };
+		97E9B2D7148EA477001D1D01 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		97E9B2D9148EA477001D1D01 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		97E9B2DB148EA477001D1D01 /* WILLTabView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WILLTabView-Prefix.pch"; sourceTree = "<group>"; };
+		97E9B2DD148EA477001D1D01 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		97E9B2DF148EA477001D1D01 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		97E9B2E0148EA477001D1D01 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		97E9B2E3148EA477001D1D01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		97E9B2EA148EA512001D1D01 /* CheckSpelling.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = CheckSpelling.pdf; sourceTree = "<group>"; };
+		97E9B2EB148EA512001D1D01 /* VaraiableBrowserPane.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = VaraiableBrowserPane.pdf; sourceTree = "<group>"; };
+		97E9B2EC148EA512001D1D01 /* VariableCalculationBrowserPane.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = VariableCalculationBrowserPane.pdf; sourceTree = "<group>"; };
+		97E9B2F0148EA568001D1D01 /* WILLTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WILLTabView.h; sourceTree = "<group>"; };
+		97E9B2F1148EA568001D1D01 /* WILLTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WILLTabView.m; sourceTree = "<group>"; };
+		97FFDC95148EB80E00D32D72 /* navBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBar.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		97E9B2C6148EA477001D1D01 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97E9B2CE148EA477001D1D01 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		97E9B2BE148EA477001D1D01 = {
+			isa = PBXGroup;
+			children = (
+				97E9B2D3148EA477001D1D01 /* WILLTabView */,
+				97E9B2CC148EA477001D1D01 /* Frameworks */,
+				97E9B2CA148EA477001D1D01 /* Products */,
+				97FFDC95148EB80E00D32D72 /* navBar.png */,
+				97E9B2EA148EA512001D1D01 /* CheckSpelling.pdf */,
+				97E9B2EB148EA512001D1D01 /* VaraiableBrowserPane.pdf */,
+				97E9B2EC148EA512001D1D01 /* VariableCalculationBrowserPane.pdf */,
+			);
+			sourceTree = "<group>";
+		};
+		97E9B2CA148EA477001D1D01 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				97E9B2C9148EA477001D1D01 /* WILLTabView.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		97E9B2CC148EA477001D1D01 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				97E9B2CD148EA477001D1D01 /* Cocoa.framework */,
+				97E9B2CF148EA477001D1D01 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		97E9B2CF148EA477001D1D01 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				97E9B2D0148EA477001D1D01 /* AppKit.framework */,
+				97E9B2D1148EA477001D1D01 /* CoreData.framework */,
+				97E9B2D2148EA477001D1D01 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		97E9B2D3148EA477001D1D01 /* WILLTabView */ = {
+			isa = PBXGroup;
+			children = (
+				97E9B2DF148EA477001D1D01 /* AppDelegate.h */,
+				97E9B2E0148EA477001D1D01 /* AppDelegate.m */,
+				97E9B2E2148EA477001D1D01 /* MainMenu.xib */,
+				97E9B2D4148EA477001D1D01 /* Supporting Files */,
+				97E9B2F0148EA568001D1D01 /* WILLTabView.h */,
+				97E9B2F1148EA568001D1D01 /* WILLTabView.m */,
+			);
+			path = WILLTabView;
+			sourceTree = "<group>";
+		};
+		97E9B2D4148EA477001D1D01 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				97E9B2D5148EA477001D1D01 /* WILLTabView-Info.plist */,
+				97E9B2D6148EA477001D1D01 /* InfoPlist.strings */,
+				97E9B2D9148EA477001D1D01 /* main.m */,
+				97E9B2DB148EA477001D1D01 /* WILLTabView-Prefix.pch */,
+				97E9B2DC148EA477001D1D01 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		97E9B2C8148EA477001D1D01 /* WILLTabView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 97E9B2E7148EA477001D1D01 /* Build configuration list for PBXNativeTarget "WILLTabView" */;
+			buildPhases = (
+				97E9B2C5148EA477001D1D01 /* Sources */,
+				97E9B2C6148EA477001D1D01 /* Frameworks */,
+				97E9B2C7148EA477001D1D01 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WILLTabView;
+			productName = WILLTabView;
+			productReference = 97E9B2C9148EA477001D1D01 /* WILLTabView.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		97E9B2C0148EA477001D1D01 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 97E9B2C3148EA477001D1D01 /* Build configuration list for PBXProject "WILLTabView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 97E9B2BE148EA477001D1D01;
+			productRefGroup = 97E9B2CA148EA477001D1D01 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				97E9B2C8148EA477001D1D01 /* WILLTabView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		97E9B2C7148EA477001D1D01 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97E9B2D8148EA477001D1D01 /* InfoPlist.strings in Resources */,
+				97E9B2DE148EA477001D1D01 /* Credits.rtf in Resources */,
+				97E9B2E4148EA477001D1D01 /* MainMenu.xib in Resources */,
+				97E9B2ED148EA512001D1D01 /* CheckSpelling.pdf in Resources */,
+				97E9B2EE148EA512001D1D01 /* VaraiableBrowserPane.pdf in Resources */,
+				97E9B2EF148EA512001D1D01 /* VariableCalculationBrowserPane.pdf in Resources */,
+				97FFDC96148EB80E00D32D72 /* navBar.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		97E9B2C5148EA477001D1D01 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97E9B2DA148EA477001D1D01 /* main.m in Sources */,
+				97E9B2E1148EA477001D1D01 /* AppDelegate.m in Sources */,
+				97E9B2F2148EA568001D1D01 /* WILLTabView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		97E9B2D6148EA477001D1D01 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				97E9B2D7148EA477001D1D01 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		97E9B2DC148EA477001D1D01 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				97E9B2DD148EA477001D1D01 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		97E9B2E2148EA477001D1D01 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				97E9B2E3148EA477001D1D01 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		97E9B2E5148EA477001D1D01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		97E9B2E6148EA477001D1D01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		97E9B2E8148EA477001D1D01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WILLTabView/WILLTabView-Prefix.pch";
+				INFOPLIST_FILE = "WILLTabView/WILLTabView-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		97E9B2E9148EA477001D1D01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WILLTabView/WILLTabView-Prefix.pch";
+				INFOPLIST_FILE = "WILLTabView/WILLTabView-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		97E9B2C3148EA477001D1D01 /* Build configuration list for PBXProject "WILLTabView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97E9B2E5148EA477001D1D01 /* Debug */,
+				97E9B2E6148EA477001D1D01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		97E9B2E7148EA477001D1D01 /* Build configuration list for PBXNativeTarget "WILLTabView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97E9B2E8148EA477001D1D01 /* Debug */,
+				97E9B2E9148EA477001D1D01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 97E9B2C0148EA477001D1D01 /* Project object */;
+}
