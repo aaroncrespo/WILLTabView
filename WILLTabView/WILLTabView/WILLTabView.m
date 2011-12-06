@@ -7,27 +7,21 @@
 #define TAB_HEIGHT      25.0f
 #define BAR_HEIGHT      30.0f
 #define LEFT_PADDING    25.0f
+#define BORDER_COLOR				[NSColor colorWithCalibratedWhite:(167/255.0f) alpha:1]
 
 @implementation WILLTabView
 @synthesize segmentedControl;
-//TODO: explore removing this with IB object.
+
 -(void)rework {
     
-    // might be a good place to draw the skin
-    [self viewWillDraw];
-
-    [segmentedControl setSegmentStyle:NSSegmentStyleTexturedSquare];
+    [segmentedControl setHidden:YES];
+    [segmentedControl setSegmentStyle:NSSegmentStyleSmallSquare];
     [segmentedControl setSegmentCount:[self tabViewItems].count];
     
     for(NSTabViewItem *tab in self.tabViewItems) {
         [segmentedControl setTarget:self];
         [segmentedControl setAction:@selector(ctrlSelected:)];
     }
-
-//    NSSize s = ((NSSegmentedCell *)(segmentedControl.cell)).cellSize;
-//    maxWidth = s.width;
-//    
-//    [segmentedControl setSelectedSegment:[self indexOfTabViewItem:[self selectedTabViewItem]]];
 }
 
 #pragma standard init and friends.
@@ -83,23 +77,33 @@
 
 #pragma drawing and alignments
 
--(void)viewWillDraw {
-//
-//    NSRect frame;
-//    frame.size.width = MIN(maxWidth,self.frame.size.width-TAB_HEIGHT);
-//    frame.size.height =  ((NSSegmentedCell *)(segmentedControl.cell)).cellSize.height;
-//    frame.origin.x = self.bounds.origin.x  + (self.bounds.size.width - frame.size.width) / 2;
-//    frame.origin.y = self.bounds.origin.y;
-//    
-//    [segmentedControl setFrame:frame];    
-}
-
 -(void)drawRect:(NSRect)dirtyRect {
+
+    NSRect bounds = [[self superview] bounds];
+	
+    NSRect frame;
+    frame.size.width = NSWidth(bounds);
+    frame.size.height =  TAB_HEIGHT;
+    frame.origin.x = self.bounds.origin.x + LEFT_PADDING;
+    frame.origin.y = NSHeight(bounds) - BAR_HEIGHT;
+        
+	//Draw the bar image
+	NSImage *barImage = [NSImage imageNamed:@"navBar"];
+    
+	[barImage drawInRect:frame fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1];
+	NSLog(@"%@",NSStringFromRect( frame));
+    
+    [segmentedControl setFrame:frame];    
+    [segmentedControl setHidden:FALSE];
     [super drawRect:dirtyRect];
 }
 -(void) dealloc {
 
     self.segmentedControl = nil;
     [super dealloc];
+}
+-(BOOL)isFlipped
+{
+    return FALSE;
 }
 @end

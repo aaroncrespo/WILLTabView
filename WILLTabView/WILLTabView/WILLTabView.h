@@ -8,7 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-//TODO: breakout the segmented control into a IB outlet to allow images properties to be set with IB
 @interface WILLTabView : NSTabView {
 @private
     double maxWidth;
