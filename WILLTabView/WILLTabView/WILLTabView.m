@@ -5,7 +5,7 @@
 
 #define TAB_WIDTH       25.0f
 #define TAB_HEIGHT      25.0f
-#define BAR_HEIGHT      30.0f
+#define BAR_HEIGHT      25.0f
 #define LEFT_PADDING    25.0f
 #define BORDER_COLOR				[NSColor colorWithCalibratedWhite:(167/255.0f) alpha:1]
 
@@ -22,6 +22,10 @@
         [segmentedControl setTarget:self];
         [segmentedControl setAction:@selector(ctrlSelected:)];
     }
+    
+    //sync external control to the internal
+    [segmentedControl setSelectedSegment:[self indexOfTabViewItem:[self selectedTabViewItem]]];
+
 }
 
 #pragma standard init and friends.
@@ -82,18 +86,25 @@
     NSRect bounds = [[self superview] bounds];
 	
     NSRect frame;
-    frame.size.width = NSWidth(bounds);
-    frame.size.height =  TAB_HEIGHT;
-    frame.origin.x = self.bounds.origin.x + LEFT_PADDING;
+    frame.origin.x = 0;
     frame.origin.y = NSHeight(bounds) - BAR_HEIGHT;
-        
+    frame.size.width = NSWidth(bounds);
+    frame.size.height =  BAR_HEIGHT;
+
 	//Draw the bar image
 	NSImage *barImage = [NSImage imageNamed:@"navBar"];
     
-	[barImage drawInRect:frame fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1];
-	NSLog(@"%@",NSStringFromRect( frame));
+	[barImage drawInRect:frame
+                fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1];
+
+    //Draw border, optional depending on the texture we end up using.
     
-    [segmentedControl setFrame:frame];    
+	NSRect borderRect = NSMakeRect(0, NSHeight(bounds)-BAR_HEIGHT,NSWidth(bounds), 1);
+    [BORDER_COLOR set];
+	[NSBezierPath fillRect:borderRect];
+
+     
+    [segmentedControl setFrame:NSMakeRect(LEFT_PADDING, frame.origin.y, frame.size.width, frame.size.height)];    
     [segmentedControl setHidden:FALSE];
     [super drawRect:dirtyRect];
 }
