@@ -8,10 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface WILLTabView : NSTabView {
-@private
-    double maxWidth;
-}
+@interface WILLTabView : NSTabView
 
 @property (strong) IBOutlet NSSegmentedControl *segmentedControl;
 @end
