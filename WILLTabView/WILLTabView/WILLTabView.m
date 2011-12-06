@@ -19,15 +19,10 @@
     [segmentedControl removeFromSuperview];
     [segmentedControl release];   
 
-    NSRect frame;
-    frame.size.width = TAB_WIDTH;
-    frame.size.height = TAB_HEIGHT;
-    frame.origin.x = self.bounds.origin.x + self.bounds.size.width / 2 - frame.size.width / 2;
-    frame.origin.y = self.bounds.origin.y;
-    
+    segmentedControl = [[NSSegmentedControl alloc] init];
 
+    [self viewWillDraw];
     
-    segmentedControl = [[NSSegmentedControl alloc] initWithFrame:frame];                              
     [segmentedControl setSegmentStyle:NSSegmentStyleTexturedSquare];
     [segmentedControl setSegmentCount:n];
     
@@ -41,12 +36,8 @@
     }
     [self addSubview:segmentedControl];
 
-
     NSSize s = ((NSSegmentedCell *)(segmentedControl.cell)).cellSize;
     maxWidth = s.width;
-    
-
-
     
     [segmentedControl setSelectedSegment:[self indexOfTabViewItem:[self selectedTabViewItem]]];
 }
@@ -116,13 +107,6 @@
 }
 
 -(void)drawRect:(NSRect)dirtyRect {
-
-    CGRect barFrame =  segmentedControl.frame;
-    barFrame.origin.x += 2.0; 
-    barFrame.origin.y += 2.0;
-    barFrame.size.width -= 4.0;  
-    barFrame.size.height -= 5.0;
-        
     [super drawRect:dirtyRect];
 }
 -(void) dealloc {
