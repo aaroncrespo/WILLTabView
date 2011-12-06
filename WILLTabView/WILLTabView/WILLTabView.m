@@ -13,33 +13,21 @@
 //TODO: explore removing this with IB object.
 -(void)rework {
     
-    NSArray * items = self.tabViewItems;
-    NSUInteger n = [items count];
-
-    [segmentedControl removeFromSuperview];
-    [segmentedControl release];   
-
-    segmentedControl = [[NSSegmentedControl alloc] init];
-
+    // might be a good place to draw the skin
     [self viewWillDraw];
-    
+
     [segmentedControl setSegmentStyle:NSSegmentStyleTexturedSquare];
-    [segmentedControl setSegmentCount:n];
+    [segmentedControl setSegmentCount:[self tabViewItems].count];
     
-    for(NSUInteger i = 0; i < n; i++) {
-        NSTabViewItem * item = (NSTabViewItem *)[items objectAtIndex:i];
-        
-        [segmentedControl setLabel:item.label forSegment:i];
-        [segmentedControl setWidth:0 forSegment:i];
+    for(NSTabViewItem *tab in self.tabViewItems) {
         [segmentedControl setTarget:self];
         [segmentedControl setAction:@selector(ctrlSelected:)];
     }
-    [self addSubview:segmentedControl];
 
-    NSSize s = ((NSSegmentedCell *)(segmentedControl.cell)).cellSize;
-    maxWidth = s.width;
-    
-    [segmentedControl setSelectedSegment:[self indexOfTabViewItem:[self selectedTabViewItem]]];
+//    NSSize s = ((NSSegmentedCell *)(segmentedControl.cell)).cellSize;
+//    maxWidth = s.width;
+//    
+//    [segmentedControl setSelectedSegment:[self indexOfTabViewItem:[self selectedTabViewItem]]];
 }
 
 #pragma standard init and friends.
@@ -48,7 +36,7 @@
     self = [super initWithFrame:frameRect];
     if (self == nil)
         return nil;
-  
+
     [self rework];
     return self;
 }
@@ -96,14 +84,14 @@
 #pragma drawing and alignments
 
 -(void)viewWillDraw {
-
-    NSRect frame;
-    frame.size.width = MIN(maxWidth,self.frame.size.width-TAB_HEIGHT);
-    frame.size.height =  ((NSSegmentedCell *)(segmentedControl.cell)).cellSize.height;
-    frame.origin.x = self.bounds.origin.x  + (self.bounds.size.width - frame.size.width) / 2;
-    frame.origin.y = self.bounds.origin.y;
-    
-    [segmentedControl setFrame:frame];    
+//
+//    NSRect frame;
+//    frame.size.width = MIN(maxWidth,self.frame.size.width-TAB_HEIGHT);
+//    frame.size.height =  ((NSSegmentedCell *)(segmentedControl.cell)).cellSize.height;
+//    frame.origin.x = self.bounds.origin.x  + (self.bounds.size.width - frame.size.width) / 2;
+//    frame.origin.y = self.bounds.origin.y;
+//    
+//    [segmentedControl setFrame:frame];    
 }
 
 -(void)drawRect:(NSRect)dirtyRect {

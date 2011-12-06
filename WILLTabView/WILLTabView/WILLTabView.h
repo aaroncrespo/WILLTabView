@@ -10,10 +10,9 @@
 
 //TODO: breakout the segmented control into a IB outlet to allow images properties to be set with IB
 @interface WILLTabView : NSTabView {
-    NSSegmentedControl *segmentedControl;
 @private
     double maxWidth;
 }
 
-@property (retain) NSSegmentedControl *segmentedControl;
+@property (strong) IBOutlet NSSegmentedControl *segmentedControl;
 @end
