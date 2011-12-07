@@ -1337,7 +1337,6 @@
 												<string key="NSFrame">{{86, 196}, {83, 83}}</string>
 												<reference key="NSSuperview" ref="272935200"/>
 												<reference key="NSWindow"/>
-												<reference key="NSNextKeyView" ref="641837690"/>
 												<bool key="NSEnabled">YES</bool>
 												<object class="NSImageCell" key="NSCell" id="893344598">
 													<int key="NSCellFlags">130560</int>
@@ -1391,7 +1390,6 @@
 												</set>
 												<string key="NSFrame">{{48, 179}, {128, 128}}</string>
 												<reference key="NSSuperview" ref="968235722"/>
-												<reference key="NSNextKeyView"/>
 												<bool key="NSEnabled">YES</bool>
 												<object class="NSImageCell" key="NSCell" id="316374818">
 													<int key="NSCellFlags">130560</int>
@@ -1432,10 +1430,10 @@
 						<object class="NSSegmentedControl" id="326068497">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{6, 338}, {72, 23}}</string>
+							<string key="NSFrame">{{208, 168}, {63, 24}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="641837690"/>
+							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:2177</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSSegmentedCell" key="NSCell" id="337286941">
@@ -1463,19 +1461,16 @@
 										<bool key="NSSegmentItemSelected">YES</bool>
 										<int key="NSSegmentItemImageScaling">0</int>
 									</object>
-									<object class="NSSegmentItem">
-										<int key="NSSegmentItemImageScaling">0</int>
-									</object>
 								</array>
 								<int key="NSSelectedSegment">1</int>
-								<int key="NSSegmentStyle">6</int>
+								<int key="NSSegmentStyle">1</int>
 							</object>
 						</object>
 					</array>
 					<string key="NSFrameSize">{480, 360}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
-					<reference key="NSNextKeyView" ref="326068497"/>
+					<reference key="NSNextKeyView" ref="641837690"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
@@ -2711,8 +2706,8 @@
 						<int key="objectID">372</int>
 						<reference key="object" ref="439893737"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="326068497"/>
 							<reference ref="641837690"/>
+							<reference ref="326068497"/>
 						</array>
 						<reference key="parent" ref="972006081"/>
 					</object>
@@ -3424,6 +3419,7 @@
 				<string key="544.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="545.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="548.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="549.CustomClassName">WILLTabCell</string>
 				<integer value="1" key="549.IBNSSegmentedControlInspectorSelectedSegmentMetadataKey"/>
 				<string key="549.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="56.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3510,6 +3506,14 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/NSDocument.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">WILLTabCell</string>
+					<string key="superclassName">NSSegmentedCell</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/WILLTabCell.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">

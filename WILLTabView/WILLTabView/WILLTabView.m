@@ -3,39 +3,49 @@
 #import <Cocoa/Cocoa.h>
 #import <QuartzCore/QuartzCore.h>
 
-#define TAB_WIDTH       25.0f
-#define TAB_HEIGHT      25.0f
+#define TAB_WIDTH       20.0f
+#define TAB_HEIGHT      20.0f
 #define BAR_HEIGHT      25.0f
 #define LEFT_PADDING    25.0f
 #define BORDER_COLOR				[NSColor colorWithCalibratedWhite:(167/255.0f) alpha:1]
 
 @implementation WILLTabCell
-- (void)drawWithExpansionFrame:(NSRect)cellFrame inView:(NSView *)view
-{
-    
-}
-//- (NSBackgroundStyle) backgroundStyle {
-//    
+//- (void) drawInteriorWithFrame:(NSRect)cellFrame inView:(NSView *)controlView {
+//    [super drawInteriorWithFrame:cellFrame inView:controlView];
 //}
-- (void)drawSegment:(NSInteger)segment inFrame:(NSRect)frame withView:(NSView *)controlView
+//
+
+//- (void) drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView {
+//    [super drawWithFrame:cellFrame inView:controlView];
+//}  Because drawWithFrame:inView: invokes drawInteriorWithFrame:inView: after it draws the cell's border, do not invoke drawWithFrame:inView: in your override implementation.
+
+- (void) drawSegment:(NSInteger)segment inFrame:(NSRect)frame withView:(NSView *)controlView
 {
-    //+-5 just for some extra width so I can see everything thats drawing.
-    //frame = NSMakeRect(TAB_WIDTH * segment +5 , 0, TAB_WIDTH -5, TAB_HEIGHT);
+    [super drawSegment:segment inFrame:frame withView:controlView];
+
+    frame.origin.x = segment * TAB_WIDTH +100;
+    frame.origin.y = (BAR_HEIGHT - TAB_HEIGHT) /2 ;
+    frame.size.width = TAB_WIDTH;
+    frame.size.height = TAB_HEIGHT;
     
-    //if you click in an area not above the underneith controller it wont respond.
-    frame = NSMakeRect(TAB_WIDTH * segment , 0, TAB_WIDTH, TAB_HEIGHT);    
-
-	NSImage *buttonImage;
-    if( ([super selectedSegment] == segment)) 
+    NSImage *buttonImage;
+    if(([self selectedSegment] == segment) | [self isHighlighted]) 
+    {
         buttonImage = [NSImage imageNamed:@"LeftNavButtonPressed"];
+    }
     else 
+    {
         buttonImage = [NSImage imageNamed:@"LeftNavButton"];
-
+    }
 	[buttonImage setFlipped:[[self controlView] isFlipped]];
+
+    //need to add padding 
 	[buttonImage drawInRect:frame fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1];
 
-    //Can substitute with NSDrawThreePartImage if needed.
+    NSLog(@"%@", [[super imageForSegment:segment]name]);
+    [[self imageForSegment:segment] drawInRect:frame fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1];
 
+    //Can substitute with NSDrawThreePartImage if needed.
 }
 
 @end
@@ -48,9 +58,7 @@
 
 -(void)awakeFromNib {
     [segmentedControl setHidden:YES];
-    [segmentedControl setSegmentStyle:NSSegmentStyleSmallSquare];    
-    [segmentedControl setCell:[[WILLTabCell alloc] init]];
-    
+     
 
     [segmentedControl setSegmentCount:[self tabViewItems].count];
     [segmentedControl setTarget:self];
