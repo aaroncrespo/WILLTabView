@@ -7,8 +7,13 @@
 #define TAB_HEIGHT      24.0f
 #define BAR_HEIGHT      28.0f
 #define LEFT_PADDING    25.0f
-#define BORDER_COLOR				[NSColor colorWithCalibratedWhite:(167/255.0f) alpha:1]
+#define BORDER_COLOR	[NSColor colorWithCalibratedWhite:(167/255.0f) alpha:1]
+#define BAR_TEXTURE     "navBar"
+#define TAB_HIGHLIGHT   "LeftNavButtonPressed"
+#define TAB_NORMAL      "LeftNavButton"
+#define TAB_SELECTED    "LeftNavButtonPressed"
 
+#pragma mark Segmentedcell Subclass
 @implementation WILLTabCell
 - (void) drawSegment:(NSInteger)segment inFrame:(NSRect)frame withView:(NSView *)controlView
 {
@@ -24,15 +29,15 @@
     NSImage *buttonImage;
     if([self isSelectedForSegment:segment]) 
     {
-        buttonImage = [NSImage imageNamed:@"LeftNavButtonPressed"];
+        buttonImage = [NSImage imageNamed:@TAB_SELECTED];
     }
     else if ([self isHighlighted]) {
         //may want a diferent image just for highlight
-        buttonImage = [NSImage imageNamed:@"LeftNavButtonPressed"];
+        buttonImage = [NSImage imageNamed:@TAB_HIGHLIGHT];
     }
     else 
     {
-        buttonImage = [NSImage imageNamed:@"LeftNavButton"];
+        buttonImage = [NSImage imageNamed:@TAB_NORMAL];
     }
     //Can substitute with NSDrawThreePartImage if needed.
 
@@ -50,7 +55,7 @@
 }
 @end
 
-@class WILLTabCell;
+#pragma mark TabView  Subclass
 @implementation WILLTabView
 @synthesize segmentedControl;
 
@@ -121,7 +126,7 @@
     frame.size.height =  BAR_HEIGHT;
 
 	//Draw the bar image
-	NSImage *barImage = [NSImage imageNamed:@"navBar"];
+	NSImage *barImage = [NSImage imageNamed:@BAR_TEXTURE];
     
 	[barImage drawInRect:frame
                 fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1];
