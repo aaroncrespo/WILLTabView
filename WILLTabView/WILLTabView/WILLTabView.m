@@ -28,7 +28,7 @@
 
 }
 
-#pragma standard init and friends.
+#pragma mark init
 
 -(id)initWithFrame:(NSRect)frameRect {
     self = [super initWithFrame:frameRect];
@@ -43,13 +43,18 @@
     [self rework];
 }
 
-#pragma mark Callback - to link our sgementedControl to the tabViewItems
+-(void) dealloc {
+    
+    self.segmentedControl = nil;
+    [super dealloc];
+}
+#pragma mark Callback - link our segementedControl to the tabViewItems
 
 -(IBAction)ctrlSelected:(NSSegmentedControl *)sender {
     [super selectTabViewItemAtIndex:[sender selectedSegment]];
 }
 
-#pragma mark Keep tabs on what gets selected - so our own segmentedControl stays synced.
+#pragma mark segment control and tabview sync methods
 
 -(void)selectTabViewItem:(NSTabViewItem *)tabViewItem {
     [super selectTabViewItem:tabViewItem];
@@ -79,8 +84,7 @@
     [self setNeedsDisplay:YES];
 }
 
-#pragma drawing and alignments
-
+#pragma mark drawing
 -(void)drawRect:(NSRect)dirtyRect {
 
     NSRect bounds = [[self superview] bounds];
@@ -108,11 +112,7 @@
     [segmentedControl setHidden:FALSE];
     [super drawRect:dirtyRect];
 }
--(void) dealloc {
 
-    self.segmentedControl = nil;
-    [super dealloc];
-}
 -(BOOL)isFlipped
 {
     return FALSE;
