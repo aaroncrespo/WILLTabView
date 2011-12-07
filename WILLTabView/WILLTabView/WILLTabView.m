@@ -9,6 +9,38 @@
 #define LEFT_PADDING    25.0f
 #define BORDER_COLOR				[NSColor colorWithCalibratedWhite:(167/255.0f) alpha:1]
 
+@implementation WILLTabCell
+- (void)drawWithExpansionFrame:(NSRect)cellFrame inView:(NSView *)view
+{
+    
+}
+//- (NSBackgroundStyle) backgroundStyle {
+//    
+//}
+- (void)drawSegment:(NSInteger)segment inFrame:(NSRect)frame withView:(NSView *)controlView
+{
+    //+-5 just for some extra width so I can see everything thats drawing.
+    //frame = NSMakeRect(TAB_WIDTH * segment +5 , 0, TAB_WIDTH -5, TAB_HEIGHT);
+    
+    //if you click in an area not above the underneith controller it wont respond.
+    frame = NSMakeRect(TAB_WIDTH * segment , 0, TAB_WIDTH, TAB_HEIGHT);    
+
+	NSImage *buttonImage;
+    if( ([super selectedSegment] == segment)) 
+        buttonImage = [NSImage imageNamed:@"LeftNavButtonPressed"];
+    else 
+        buttonImage = [NSImage imageNamed:@"LeftNavButton"];
+
+	[buttonImage setFlipped:[[self controlView] isFlipped]];
+	[buttonImage drawInRect:frame fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1];
+
+    //Can substitute with NSDrawThreePartImage if needed.
+
+}
+
+@end
+
+@class WILLTabCell;
 @implementation WILLTabView
 @synthesize segmentedControl;
 
@@ -16,13 +48,13 @@
 
 -(void)awakeFromNib {
     [segmentedControl setHidden:YES];
-    [segmentedControl setSegmentStyle:NSSegmentStyleSmallSquare];
+    [segmentedControl setSegmentStyle:NSSegmentStyleSmallSquare];    
+    [segmentedControl setCell:[[WILLTabCell alloc] init]];
+    
+
     [segmentedControl setSegmentCount:[self tabViewItems].count];
     [segmentedControl setTarget:self];
     [segmentedControl setAction:@selector(ctrlSelected:)];
-
-    //set tab button style.
-    //[segmentedControl setCell:[WILLTabCell alloc] init]];
 
     //sync external control to the internal
     [segmentedControl setSelectedSegment:[self indexOfTabViewItem:[self selectedTabViewItem]]];
