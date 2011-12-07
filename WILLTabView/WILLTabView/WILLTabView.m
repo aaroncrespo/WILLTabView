@@ -12,35 +12,21 @@
 @implementation WILLTabView
 @synthesize segmentedControl;
 
--(void)rework {
-    
+#pragma mark init
+
+-(void)awakeFromNib {
     [segmentedControl setHidden:YES];
     [segmentedControl setSegmentStyle:NSSegmentStyleSmallSquare];
     [segmentedControl setSegmentCount:[self tabViewItems].count];
-    
-    for(NSTabViewItem *tab in self.tabViewItems) {
-        [segmentedControl setTarget:self];
-        [segmentedControl setAction:@selector(ctrlSelected:)];
-    }
-    
+    [segmentedControl setTarget:self];
+    [segmentedControl setAction:@selector(ctrlSelected:)];
+
+    //set tab button style.
+    //[segmentedControl setCell:[WILLTabCell alloc] init]];
+
     //sync external control to the internal
     [segmentedControl setSelectedSegment:[self indexOfTabViewItem:[self selectedTabViewItem]]];
 
-}
-
-#pragma mark init
-
--(id)initWithFrame:(NSRect)frameRect {
-    self = [super initWithFrame:frameRect];
-    if (self == nil)
-        return nil;
-
-    [self rework];
-    return self;
-}
-
--(void)awakeFromNib {
-    [self rework];
 }
 
 -(void) dealloc {
@@ -85,6 +71,7 @@
 }
 
 #pragma mark drawing
+// TODO: clip content under the bar.
 -(void)drawRect:(NSRect)dirtyRect {
 
     NSRect bounds = [[self superview] bounds];
