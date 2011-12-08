@@ -12,13 +12,6 @@
 @synthesize segmentedControl;
 
 #pragma mark init
-- (id)init {
-    self = [super init];
-    if (self) {
-        [self 
-    }
-    return self;
-}
 
 -(void)awakeFromNib {
     [segmentedControl setHidden:YES];
