@@ -6,7 +6,7 @@
 #define BAR_HEIGHT      28.0f
 #define LEFT_PADDING    25.0f
 #define BORDER_COLOR	[NSColor colorWithCalibratedWhite:(167/255.0f) alpha:1]
-#define BAR_TEXTURE     "navBar"
+#define BAR_TEXTURE     "WILLTabViewBG"
 
 @implementation WILLTabView
 @synthesize segmentedControl;
@@ -47,7 +47,7 @@
 
 	//Draw the bar image
 	NSImage *barImage = [NSImage imageNamed:@BAR_TEXTURE];
-    
+    [barImage setFlipped:FALSE];
 	[barImage drawInRect:frame
                 fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1];
 

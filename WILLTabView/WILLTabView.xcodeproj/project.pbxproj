@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		97AD26CB1491758200CDC4DB /* WILLTabCellSelectedBG.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 97AD26C81491758200CDC4DB /* WILLTabCellSelectedBG.pdf */; };
+		97AD26CC1491758200CDC4DB /* WILLTabCellSelectedBorder.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 97AD26C91491758200CDC4DB /* WILLTabCellSelectedBorder.pdf */; };
+		97AD26CD1491758200CDC4DB /* WILLTabViewBG.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 97AD26CA1491758200CDC4DB /* WILLTabViewBG.pdf */; };
 		97E9B2CE148EA477001D1D01 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97E9B2CD148EA477001D1D01 /* Cocoa.framework */; };
 		97E9B2D8148EA477001D1D01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 97E9B2D6148EA477001D1D01 /* InfoPlist.strings */; };
 		97E9B2DA148EA477001D1D01 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E9B2D9148EA477001D1D01 /* main.m */; };
@@ -24,6 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		97AD26C81491758200CDC4DB /* WILLTabCellSelectedBG.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WILLTabCellSelectedBG.pdf; sourceTree = "<group>"; };
+		97AD26C91491758200CDC4DB /* WILLTabCellSelectedBorder.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WILLTabCellSelectedBorder.pdf; sourceTree = "<group>"; };
+		97AD26CA1491758200CDC4DB /* WILLTabViewBG.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WILLTabViewBG.pdf; sourceTree = "<group>"; };
 		97E9B2C9148EA477001D1D01 /* WILLTabView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WILLTabView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E9B2CD148EA477001D1D01 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		97E9B2D0148EA477001D1D01 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -128,6 +134,9 @@
 		97FFDCA1148FC64B00D32D72 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				97AD26C81491758200CDC4DB /* WILLTabCellSelectedBG.pdf */,
+				97AD26C91491758200CDC4DB /* WILLTabCellSelectedBorder.pdf */,
+				97AD26CA1491758200CDC4DB /* WILLTabViewBG.pdf */,
 				97FFDC9D148FC64300D32D72 /* LeftNavButton.png */,
 				97FFDC9E148FC64300D32D72 /* LeftNavButtonPressed.png */,
 				97FFDC95148EB80E00D32D72 /* navBar.png */,
@@ -198,6 +207,9 @@
 				97FFDC96148EB80E00D32D72 /* navBar.png in Resources */,
 				97FFDC9F148FC64300D32D72 /* LeftNavButton.png in Resources */,
 				97FFDCA0148FC64300D32D72 /* LeftNavButtonPressed.png in Resources */,
+				97AD26CB1491758200CDC4DB /* WILLTabCellSelectedBG.pdf in Resources */,
+				97AD26CC1491758200CDC4DB /* WILLTabCellSelectedBorder.pdf in Resources */,
+				97AD26CD1491758200CDC4DB /* WILLTabViewBG.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
