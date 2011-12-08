@@ -12,6 +12,3 @@
 
 @property (strong) IBOutlet NSSegmentedControl *segmentedControl;
 @end
-
-@interface WILLTabCell : NSSegmentedCell
-@end

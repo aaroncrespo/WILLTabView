@@ -17,6 +17,7 @@
 		97E9B2EE148EA512001D1D01 /* VaraiableBrowserPane.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 97E9B2EB148EA512001D1D01 /* VaraiableBrowserPane.pdf */; };
 		97E9B2EF148EA512001D1D01 /* VariableCalculationBrowserPane.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 97E9B2EC148EA512001D1D01 /* VariableCalculationBrowserPane.pdf */; };
 		97E9B2F2148EA568001D1D01 /* WILLTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E9B2F1148EA568001D1D01 /* WILLTabView.m */; };
+		97FB5AC014914DA600CBBA3A /* WILLTabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FB5ABF14914DA600CBBA3A /* WILLTabCell.m */; };
 		97FFDC96148EB80E00D32D72 /* navBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 97FFDC95148EB80E00D32D72 /* navBar.png */; };
 		97FFDC9F148FC64300D32D72 /* LeftNavButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 97FFDC9D148FC64300D32D72 /* LeftNavButton.png */; };
 		97FFDCA0148FC64300D32D72 /* LeftNavButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 97FFDC9E148FC64300D32D72 /* LeftNavButtonPressed.png */; };
@@ -41,6 +42,8 @@
 		97E9B2EC148EA512001D1D01 /* VariableCalculationBrowserPane.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = VariableCalculationBrowserPane.pdf; sourceTree = "<group>"; };
 		97E9B2F0148EA568001D1D01 /* WILLTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WILLTabView.h; sourceTree = "<group>"; };
 		97E9B2F1148EA568001D1D01 /* WILLTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WILLTabView.m; sourceTree = "<group>"; };
+		97FB5ABE14914DA600CBBA3A /* WILLTabCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WILLTabCell.h; path = ../WILLTabCell.h; sourceTree = "<group>"; };
+		97FB5ABF14914DA600CBBA3A /* WILLTabCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WILLTabCell.m; path = ../WILLTabCell.m; sourceTree = "<group>"; };
 		97FFDC95148EB80E00D32D72 /* navBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBar.png; sourceTree = "<group>"; };
 		97FFDC9D148FC64300D32D72 /* LeftNavButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeftNavButton.png; sourceTree = "<group>"; };
 		97FFDC9E148FC64300D32D72 /* LeftNavButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeftNavButtonPressed.png; sourceTree = "<group>"; };
@@ -101,6 +104,8 @@
 				97E9B2DF148EA477001D1D01 /* AppDelegate.h */,
 				97E9B2E0148EA477001D1D01 /* AppDelegate.m */,
 				97E9B2E2148EA477001D1D01 /* MainMenu.xib */,
+				97FB5ABE14914DA600CBBA3A /* WILLTabCell.h */,
+				97FB5ABF14914DA600CBBA3A /* WILLTabCell.m */,
 				97E9B2F0148EA568001D1D01 /* WILLTabView.h */,
 				97E9B2F1148EA568001D1D01 /* WILLTabView.m */,
 				97E9B2D4148EA477001D1D01 /* Supporting Files */,
@@ -206,6 +211,7 @@
 				97E9B2DA148EA477001D1D01 /* main.m in Sources */,
 				97E9B2E1148EA477001D1D01 /* AppDelegate.m in Sources */,
 				97E9B2F2148EA568001D1D01 /* WILLTabView.m in Sources */,
+				97FB5AC014914DA600CBBA3A /* WILLTabCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
