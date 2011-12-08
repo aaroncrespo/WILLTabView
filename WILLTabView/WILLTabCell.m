@@ -18,7 +18,6 @@
 
 - (void) drawSegment:(NSInteger)segment inFrame:(NSRect)frame withView:(NSView *)controlView
 {
-    [super drawSegment:segment inFrame:NSZeroRect withView:controlView];
     frame.origin.x = segment * TAB_WIDTH;
     frame.origin.y = (BAR_HEIGHT - TAB_HEIGHT) /2 ;
     frame.size.width = TAB_WIDTH;
@@ -33,7 +32,7 @@
         buttonImage = [NSImage imageNamed:@TAB_SELECTED];
     }
     else if ([self isHighlighted]) {
-        //may want a diferent image just for highlight
+        //may want a different image just for highlight
         buttonImage = [NSImage imageNamed:@TAB_HIGHLIGHT];
     }
     else 

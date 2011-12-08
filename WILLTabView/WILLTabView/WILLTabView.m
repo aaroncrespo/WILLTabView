@@ -8,7 +8,6 @@
 #define BORDER_COLOR	[NSColor colorWithCalibratedWhite:(167/255.0f) alpha:1]
 #define BAR_TEXTURE     "navBar"
 
-#pragma mark TabView  Subclass
 @implementation WILLTabView
 @synthesize segmentedControl;
 
@@ -25,18 +24,18 @@
 
 }
 
--(void) dealloc {
-    
+-(void) dealloc {   
     self.segmentedControl = nil;
-    [super dealloc];
 }
 #pragma mark Callback - link our segementedControl to the tabViewItems
 
 -(IBAction)ctrlSelected:(NSSegmentedControl *)sender {
     [super selectTabViewItemAtIndex:[sender selectedSegment]];
 }
-// TODO: clip content under the bar.
 
+-(BOOL)isFlipped{return FALSE;}
+
+// TODO: clip content under the bar.
 -(void)drawRect:(NSRect)dirtyRect {
 
     NSRect bounds = [self bounds];
@@ -54,7 +53,6 @@
                 fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1];
 
     //Draw border, optional depending on the texture we end up using.
-    
 	NSRect borderRect = NSMakeRect(0, NSHeight(bounds)-BAR_HEIGHT,NSWidth(bounds), 1);
     [BORDER_COLOR set];
 	[NSBezierPath fillRect:borderRect];
@@ -63,10 +61,5 @@
     [segmentedControl setFrame:NSMakeRect(LEFT_PADDING, frame.origin.y, frame.size.width, frame.size.height)];    
     [segmentedControl setHidden:FALSE];
     [super drawRect:dirtyRect];
-}
-
--(BOOL)isFlipped
-{
-    return FALSE;
 }
 @end
