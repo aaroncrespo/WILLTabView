@@ -21,7 +21,6 @@
     
     //sync external control to the internal
     [segmentedControl setSelectedSegment:[self indexOfTabViewItem:[self selectedTabViewItem]]];
-[self selectTabViewItemAtIndex:1];	
 }
 
 -(void) dealloc {   
@@ -65,30 +64,30 @@
 #pragma mark segment control and tabview sync methods
 
 -(void)selectTabViewItem:(NSTabViewItem *)tabViewItem {
-       [super selectTabViewItem:tabViewItem];
-       [segmentedControl setSelectedSegment:[self indexOfTabViewItem:[self selectedTabViewItem]]];
-   }
+   [super selectTabViewItem:tabViewItem];
+   [segmentedControl setSelectedSegment:[self indexOfTabViewItem:[self selectedTabViewItem]]];
+}
 
 -(void)selectTabViewItemAtIndex:(NSInteger)index {
-       [super selectTabViewItemAtIndex:index];
-       [segmentedControl setSelectedSegment:[self indexOfTabViewItem:[self selectedTabViewItem]]];
-   }
+   [super selectTabViewItemAtIndex:index];
+   [segmentedControl setSelectedSegment:[self indexOfTabViewItem:[self selectedTabViewItem]]];
+}
 
 -(void)selectTabViewItemWithIdentifier:(id)identifier {
-       [super selectTabViewItemWithIdentifier:identifier];
-       [segmentedControl setSelectedSegment:[self indexOfTabViewItem:[self selectedTabViewItem]]];    
-   }
+   [super selectTabViewItemWithIdentifier:identifier];
+   [segmentedControl setSelectedSegment:[self indexOfTabViewItem:[self selectedTabViewItem]]];    
+}
 // skipping selectNext/PreviousTabViewItem - hoping they use above.
 
 -(void)addTabViewItem:(NSTabViewItem *)anItem {
-       [super addTabViewItem:anItem];
-       [self awakeFromNib];
-       [self setNeedsDisplay:YES];
-   }
+   [super addTabViewItem:anItem];
+   [self awakeFromNib];
+   [self setNeedsDisplay:YES];
+}
 
 -(void)removeTabViewItem:(NSTabViewItem *)anItem {
-       [super removeTabViewItem:anItem];
-       [self awakeFromNib];
-       [self setNeedsDisplay:YES];
-   }
+   [super removeTabViewItem:anItem];
+   [self awakeFromNib];
+   [self setNeedsDisplay:YES];
+}
 @end
