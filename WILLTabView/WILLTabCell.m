@@ -34,14 +34,14 @@
         middleImage = [NSImage imageNamed:@TAB_SELECTED];
         rightImage  = [NSImage imageNamed:@TAB_BORDER];
     }
-    else 
+    else if (![self isHighlighted] && ![self isSelectedForSegment:segment]) 
     {
         leftImage   = [NSImage imageNamed:@TAB_NORMAL];
         middleImage = [NSImage imageNamed:@TAB_NORMAL];
         rightImage  = [NSImage imageNamed:@TAB_NORMAL];
 
     }
-
+    NSLog(@"selected)
     NSDrawThreePartImage(frame, leftImage, middleImage, rightImage,
 						 NO, NSCompositeSourceOver, 1, YES);
    
@@ -52,5 +52,9 @@
     [[self image] drawInRect:NSMakeRect(frame.origin.x+7, frame.origin.y+3, frame.size.width -14, frame.size.height-6)
                                        fromRect:NSZeroRect 
                                       operation:NSCompositeSourceOver fraction:1];
+}
+-(NSInteger)selectedSegment 
+{
+    
 }
 @end
