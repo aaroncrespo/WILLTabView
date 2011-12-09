@@ -22,14 +22,16 @@
 
 	NSImage *leftImage, *middleImage, *rightImage;
     
-    if([self isSelectedForSegment:segment] && ![self isHighlighted]) 
+    if([self isSelectedForSegment:segment]) 
     {
         leftImage   = [NSImage imageNamed:@TAB_BORDER];
         middleImage = [NSImage imageNamed:@TAB_SELECTED];
         rightImage  = [NSImage imageNamed:@TAB_BORDER];
     }
-    else if ([self isHighlighted] && ![self isSelectedForSegment:segment]) 
-    {
+    else if ([self isHighlighted]) {
+        //may want a different image just for highlight
+        [self setse
+        
         leftImage   = [NSImage imageNamed:@TAB_BORDER];
         middleImage = [NSImage imageNamed:@TAB_SELECTED];
         rightImage  = [NSImage imageNamed:@TAB_BORDER];
