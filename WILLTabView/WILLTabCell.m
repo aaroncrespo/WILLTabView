@@ -21,27 +21,22 @@
     [super setWidth:TAB_WIDTH forSegment:segment];
 
 	NSImage *leftImage, *middleImage, *rightImage;
-    
+
+    NSLog(@"action %ld",[self mouseDownFlags]);
+       
     if([self isSelectedForSegment:segment] && ![self isHighlighted]) 
     {
         leftImage   = [NSImage imageNamed:@TAB_BORDER];
         middleImage = [NSImage imageNamed:@TAB_SELECTED];
         rightImage  = [NSImage imageNamed:@TAB_BORDER];
     }
-    else if ([self isHighlighted] && ![self isSelectedForSegment:segment]) 
-    {
-        leftImage   = [NSImage imageNamed:@TAB_BORDER];
-        middleImage = [NSImage imageNamed:@TAB_SELECTED];
-        rightImage  = [NSImage imageNamed:@TAB_BORDER];
-    }
-    else if (![self isHighlighted] && ![self isSelectedForSegment:segment]) 
+    else 
     {
         leftImage   = [NSImage imageNamed:@TAB_NORMAL];
         middleImage = [NSImage imageNamed:@TAB_NORMAL];
         rightImage  = [NSImage imageNamed:@TAB_NORMAL];
-
-    }
-    NSLog(@"selected)
+        
+    }        
     NSDrawThreePartImage(frame, leftImage, middleImage, rightImage,
 						 NO, NSCompositeSourceOver, 1, YES);
    
@@ -53,8 +48,19 @@
                                        fromRect:NSZeroRect 
                                       operation:NSCompositeSourceOver fraction:1];
 }
+- (BOOL)prefersTrackingUntilMouseUp
+{
+    return false;
+}
 -(NSInteger)selectedSegment 
 {
-    
+    NSLog(@"selection %ld",[super selectedSegment]);
+    return [super selectedSegment];
+}
+
+-(NSInteger)mouseDownFlags
+{
+    NSLog(@"action %ld",[super mouseDownFlags]);
+    return [super mouseDownFlags];
 }
 @end
