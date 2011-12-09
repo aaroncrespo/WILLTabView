@@ -1337,7 +1337,7 @@
 												<string key="NSFrame">{{86, 196}, {83, 83}}</string>
 												<reference key="NSSuperview" ref="272935200"/>
 												<reference key="NSWindow"/>
-												<reference key="NSNextKeyView" ref="641837690"/>
+												<reference key="NSNextKeyView" ref="326068497"/>
 												<bool key="NSEnabled">YES</bool>
 												<object class="NSImageCell" key="NSCell" id="893344598">
 													<int key="NSCellFlags">130560</int>
@@ -1408,7 +1408,7 @@
 												<bool key="NSEditable">YES</bool>
 											</object>
 										</array>
-										<string key="NSFrame">{{10, 33}, {460, 314}}</string>
+										<string key="NSFrameSize">{480, 360}</string>
 										<reference key="NSNextKeyView" ref="649221027"/>
 										<string key="NSReuseIdentifierKey">_NS:620</string>
 									</object>
@@ -1435,6 +1435,7 @@
 							<string key="NSFrame">{{208, 168}, {63, 24}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:2177</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSSegmentedCell" key="NSCell" id="337286941">
@@ -1459,7 +1460,6 @@
 										</object>
 										<string key="NSSegmentItemLabel"/>
 										<int key="NSSegmentItemTag">1</int>
-										<bool key="NSSegmentItemSelected">YES</bool>
 										<int key="NSSegmentItemImageScaling">0</int>
 									</object>
 								</array>

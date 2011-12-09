@@ -1,4 +1,5 @@
 #import "WILLTabView.h"
+#import "WILLTabCell.h"
 #include "ThemeConstants.h"
 
 @implementation WILLTabView

@@ -11,12 +11,6 @@
 @implementation AppDelegate
 
 @synthesize window = _window;
-@synthesize tabView;
-
-- (void)dealloc
-{
-    [super dealloc];
-}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {

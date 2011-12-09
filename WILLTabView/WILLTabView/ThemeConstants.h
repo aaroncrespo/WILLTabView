@@ -7,7 +7,7 @@
 //
 
 
-#define BORDER_COLOR	[NSColor colorWithCalibratedWhite:(167/255.0f) alpha:1]
+#define BORDER_COLOR	[NSColor darkGrayColor]
 
 #define TAB_HIGHLIGHT   "WILLTabCellSelectedBG"
 #define TAB_SELECTED    "WILLTabCellSelectedBG"
@@ -18,5 +18,5 @@
 #define TAB_HEIGHT      22.0f
 
 #define LEFT_PADDING    20.0f
-#define BAR_HEIGHT      26.0f
+#define BAR_HEIGHT      21.0f
 #define BAR_TEXTURE     "WILLTabViewBG"

@@ -10,9 +10,7 @@
 #import "WILLTabView.h"
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 {
-    WILLTabView *tabView;
+    IBOutlet WILLTabView *tabView;
 }
 @property (assign) IBOutlet NSWindow *window;
-
-@property (assign) IBOutlet WILLTabView *tabView;
 @end
