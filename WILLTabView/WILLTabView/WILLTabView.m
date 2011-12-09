@@ -1,12 +1,5 @@
 #import "WILLTabView.h"
-
-#import <Cocoa/Cocoa.h>
-#import <QuartzCore/QuartzCore.h>
-
-#define BAR_HEIGHT      28.0f
-#define LEFT_PADDING    25.0f
-#define BORDER_COLOR	[NSColor colorWithCalibratedWhite:(167/255.0f) alpha:1]
-#define BAR_TEXTURE     "WILLTabViewBG"
+#include "ThemeConstants.h"
 
 @implementation WILLTabView
 @synthesize segmentedControl;
@@ -52,13 +45,14 @@
                 fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1];
 
     //Draw border, optional depending on the texture we end up using.
-	NSRect borderRect = NSMakeRect(0, NSHeight(bounds)-BAR_HEIGHT,NSWidth(bounds), 1);
+	NSRect borderRect = NSMakeRect(0, NSHeight(bounds)-BAR_HEIGHT-1,NSWidth(bounds), 1);
     [BORDER_COLOR set];
 	[NSBezierPath fillRect:borderRect];
 
      
     [segmentedControl setFrame:NSMakeRect(LEFT_PADDING, frame.origin.y, frame.size.width, frame.size.height)];    
     [segmentedControl setHidden:FALSE];
+    
     [super drawRect:dirtyRect];
 }
 #pragma mark segment control and tabview sync methods

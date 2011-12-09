@@ -1,19 +1,5 @@
-//
-//  WILLTabCell.m
-//  WILLTabView
-//
-//  Created by Aaron C on 12/8/11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
-//
-
 #import "WILLTabCell.h"
-#define TAB_HIGHLIGHT   "WILLTabCellSelectedBG"
-#define TAB_SELECTED    "WILLTabCellSelectedBG"
-#define TAB_NORMAL      "WILLTabViewBG"
-#define TAB_BORDER      "WILLTabCellSelectedBorder"
-#define TAB_WIDTH       25.0f
-#define TAB_HEIGHT      24.0f
-#define BAR_HEIGHT      28.0f
+#include "ThemeConstants.h"
 
 @implementation WILLTabCell
 
@@ -32,7 +18,6 @@
     frame.size.width = TAB_WIDTH;
     frame.size.height = TAB_HEIGHT;
     
-    //there should be a way to remove the old control and transfer the event handling to the new one.
     [super setWidth:TAB_WIDTH forSegment:segment];
 
 	NSImage *leftImage, *middleImage, *rightImage;
@@ -45,9 +30,9 @@
     }
     else if ([self isHighlighted]) {
         //may want a different image just for highlight
-        leftImage   = [NSImage imageNamed:@TAB_SELECTED];
+        leftImage   = [NSImage imageNamed:@TAB_BORDER];
         middleImage = [NSImage imageNamed:@TAB_SELECTED];
-        rightImage  = [NSImage imageNamed:@TAB_SELECTED];
+        rightImage  = [NSImage imageNamed:@TAB_BORDER];
     }
     else 
     {
@@ -57,15 +42,14 @@
 
     }
 
-    //    NSDrawThreePartImage(<#NSRect frame#>, <#NSImage *startCap#>, <#NSImage *centerFill#>, <#NSImage *endCap#>, <#BOOL vertical#>, <#NSCompositingOperation op#>, <#CGFloat alphaFraction#>, <#BOOL flipped#>)
-    
     NSDrawThreePartImage(frame, leftImage, middleImage, rightImage,
 						 NO, NSCompositeSourceOver, 1, YES);
    
     //need to add padding 
     //Im sure theres a better way of doing this.
+    [self setImage:[super imageForSegment:segment]];
     [[super imageForSegment:segment] setFlipped:YES];
-    [[super imageForSegment:segment] drawInRect:NSMakeRect(frame.origin.x+7, frame.origin.y+4, frame.size.width -14, frame.size.height-8)
+    [[self image] drawInRect:NSMakeRect(frame.origin.x+7, frame.origin.y+3, frame.size.width -14, frame.size.height-6)
                                        fromRect:NSZeroRect 
                                       operation:NSCompositeSourceOver fraction:1];
 }

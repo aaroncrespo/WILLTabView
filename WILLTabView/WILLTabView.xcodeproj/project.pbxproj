@@ -30,6 +30,7 @@
 		97AD26C81491758200CDC4DB /* WILLTabCellSelectedBG.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WILLTabCellSelectedBG.pdf; sourceTree = "<group>"; };
 		97AD26C91491758200CDC4DB /* WILLTabCellSelectedBorder.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WILLTabCellSelectedBorder.pdf; sourceTree = "<group>"; };
 		97AD26CA1491758200CDC4DB /* WILLTabViewBG.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WILLTabViewBG.pdf; sourceTree = "<group>"; };
+		97AD26D314926E8D00CDC4DB /* ThemeConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeConstants.h; sourceTree = "<group>"; };
 		97E9B2C9148EA477001D1D01 /* WILLTabView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WILLTabView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E9B2CD148EA477001D1D01 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		97E9B2D0148EA477001D1D01 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -114,6 +115,7 @@
 				97FB5ABF14914DA600CBBA3A /* WILLTabCell.m */,
 				97E9B2F0148EA568001D1D01 /* WILLTabView.h */,
 				97E9B2F1148EA568001D1D01 /* WILLTabView.m */,
+				97AD26D314926E8D00CDC4DB /* ThemeConstants.h */,
 				97E9B2D4148EA477001D1D01 /* Supporting Files */,
 			);
 			path = WILLTabView;
