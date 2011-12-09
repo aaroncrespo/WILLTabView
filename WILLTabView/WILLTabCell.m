@@ -22,7 +22,10 @@
 
 	NSImage *leftImage, *middleImage, *rightImage;
 
-    NSLog(@"action %ld",[self mouseDownFlags]);
+    //fall back incase my experiments fail, it wont crash
+    leftImage   = [NSImage imageNamed:@TAB_NORMAL];
+    middleImage = [NSImage imageNamed:@TAB_NORMAL];
+    rightImage  = [NSImage imageNamed:@TAB_NORMAL];
        
     if([self isSelectedForSegment:segment] && ![self isHighlighted]) 
     {
@@ -30,13 +33,14 @@
         middleImage = [NSImage imageNamed:@TAB_SELECTED];
         rightImage  = [NSImage imageNamed:@TAB_BORDER];
     }
-    else 
-    {
-        leftImage   = [NSImage imageNamed:@TAB_NORMAL];
-        middleImage = [NSImage imageNamed:@TAB_NORMAL];
-        rightImage  = [NSImage imageNamed:@TAB_NORMAL];
-        
-    }        
+    //convert screen coordinates to segment frame coordinate or find another way.
+    if ([controlView hitTest:[NSEvent mouseLocation]] && [self mouseDownFlags]) {
+        NSLog(@"YES");
+        leftImage   = [NSImage imageNamed:@TAB_BORDER];
+        middleImage = [NSImage imageNamed:@TAB_SELECTED];
+        rightImage  = [NSImage imageNamed:@TAB_BORDER];
+    }
+      
     NSDrawThreePartImage(frame, leftImage, middleImage, rightImage,
 						 NO, NSCompositeSourceOver, 1, YES);
    
@@ -48,19 +52,5 @@
                                        fromRect:NSZeroRect 
                                       operation:NSCompositeSourceOver fraction:1];
 }
-- (BOOL)prefersTrackingUntilMouseUp
-{
-    return false;
-}
--(NSInteger)selectedSegment 
-{
-    NSLog(@"selection %ld",[super selectedSegment]);
-    return [super selectedSegment];
-}
 
--(NSInteger)mouseDownFlags
-{
-    NSLog(@"action %ld",[super mouseDownFlags]);
-    return [super mouseDownFlags];
-}
 @end
