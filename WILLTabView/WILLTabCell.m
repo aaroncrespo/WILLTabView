@@ -66,10 +66,13 @@
      [self setHighlightedSegment:-1];
      NSPoint loc = currentPoint;
      NSRect frame = controlView.frame;
+     loc.x += frame.origin.x;
+     loc.y += frame.origin.y;
      NSUInteger i = 0, count = [self segmentCount];
-     loc = [controlView convertPoint:loc fromView:nil];
-     while(i < count && frame.origin.x < controlView.frame.size.width) {     
+     //loc = [controlView convertPoint:loc fromView:nil];
+     while(i < count && frame.origin.x < controlView.frame.size.width) {
          frame.size.width = [self widthForSegment:i];
+         //NSLog(@"i:%d (%f,%f,%f,%f) (%f,%f)", i, frame.origin.x, frame.origin.y, frame.size.width, frame.size.height, loc.x, loc.y);         
          if(NSMouseInRect(loc, frame, NO))
          {
              [self setHighlightedSegment:i];
@@ -102,6 +105,11 @@
               inView:(NSView *)controlView 
            mouseIsUp:(BOOL)flag; {
     //NSLog(@"stopTracking");
+    
+    if (highlightedSegment >= 0) {
+        [self setSelectedSegment:highlightedSegment];
+    }
+    
     [self setHighlightedSegment:-1];
     [super stopTracking:lastPoint at:stopPoint inView:controlView mouseIsUp:flag];
 }
