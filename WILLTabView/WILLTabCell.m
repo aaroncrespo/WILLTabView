@@ -112,6 +112,7 @@
     return [super continueTracking:lastPoint at:currentPoint inView:controlView];
 }
 
+// TODO: fix this warning.
 - (void)stopTracking:(NSPoint)lastPoint 
                   at:(NSPoint)stopPoint 
               inView:(NSView *)controlView 
@@ -120,7 +121,10 @@
     if (highlightedSegment >= 0) {
         [self setSelectedSegment:highlightedSegment];
         if ([self.target respondsToSelector:self.action]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
             [self.target performSelector:self.action withObject:controlView];
+#pragma clang diagnostic pop
         }
     }
     
