@@ -108,6 +108,9 @@
     
     if (highlightedSegment >= 0) {
         [self setSelectedSegment:highlightedSegment];
+        if ([self.target respondsToSelector:self.action]) {
+            [self.target performSelector:self.action withObject:controlView];
+        }
     }
     
     [self setHighlightedSegment:-1];
