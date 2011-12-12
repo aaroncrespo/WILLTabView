@@ -62,31 +62,48 @@
     return self;
 }
 
-- (BOOL)trackMouse:(NSEvent *)event inRect:(NSRect)cellFrame ofView:(NSView *)controlView untilMouseUp:(BOOL)untilMouseUp;
-{
-    [self setHighlightedSegment:-1];
-    NSPoint loc = [event locationInWindow];
-    NSRect frame = cellFrame;
-    NSUInteger i = 0, count = [self segmentCount];
-    loc = [controlView convertPoint:loc fromView:nil];
-    while(i < count && frame.origin.x < cellFrame.size.width) {
-        
-        frame.size.width = [self widthForSegment:i];
-        if(NSMouseInRect(loc, frame, NO))
-        {
-            [self setHighlightedSegment:i];
-            break;
-        }
-        frame.origin.x+=frame.size.width;
-        i++;
-    }
-    
-    [controlView setNeedsDisplay:YES];
-    return [super trackMouse:event inRect:cellFrame ofView:controlView untilMouseUp:untilMouseUp];
+- (void)_updateHighlightedSegment:(NSPoint)currentPoint {
+    /*
+     [self setHighlightedSegment:-1];
+     NSPoint loc = [event locationInWindow];
+     NSRect frame = cellFrame;
+     NSUInteger i = 0, count = [self segmentCount];
+     loc = [controlView convertPoint:loc fromView:nil];
+     while(i < count && frame.origin.x < cellFrame.size.width) {     
+         frame.size.width = [self widthForSegment:i];
+         if(NSMouseInRect(loc, frame, NO))
+         {
+             [self setHighlightedSegment:i];
+             break;
+         }
+         frame.origin.x+=frame.size.width;
+         i++;
+     }
+     
+     [controlView setNeedsDisplay:YES];
+     */
 }
 
-- (void)stopTracking:(NSPoint)lastPoint at:(NSPoint)stopPoint inView:(NSView *)controlView mouseIsUp:(BOOL)flag;
-{
+- (BOOL)startTrackingAt:(NSPoint)startPoint 
+                 inView:(NSView *)controlView {
+    NSLog(@"startTrackingAt");
+    [self _updateHighlightedSegment:startPoint];
+    return [super startTrackingAt:startPoint inView:controlView];
+}
+
+- (BOOL)continueTracking:(NSPoint)lastPoint 
+                      at:(NSPoint)currentPoint 
+                  inView:(NSView *)controlView {
+    NSLog(@"continueTracking");
+    [self _updateHighlightedSegment:currentPoint];
+    return [super continueTracking:lastPoint at:currentPoint inView:controlView];
+}
+
+- (void)stopTracking:(NSPoint)lastPoint 
+                  at:(NSPoint)stopPoint 
+              inView:(NSView *)controlView 
+           mouseIsUp:(BOOL)flag; {
+    NSLog(@"stopTracking");
     [self setHighlightedSegment:-1];
     [super stopTracking:lastPoint at:stopPoint inView:controlView mouseIsUp:flag];
 }
