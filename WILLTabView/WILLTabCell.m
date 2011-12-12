@@ -6,7 +6,6 @@
 #define TAB_BORDER      "WILLTabCellSelectedBorder"
 
 #define TAB_WIDTH       33.0f
-#define TAB_HEIGHT      22.0f
 #define IMAGE_PADDING   3.0f
 
 @implementation WILLTabCell
@@ -24,9 +23,9 @@
 - (void) drawSegment:(NSInteger)segment inFrame:(NSRect)frame withView:(NSView *)controlView
 {
     frame.origin.x = segment * TAB_WIDTH;
-    frame.origin.y = (controlView.frame.size.height - TAB_HEIGHT) /2 ;
+    frame.origin.y = 0 ;
     frame.size.width = TAB_WIDTH;
-    frame.size.height = TAB_HEIGHT;
+    frame.size.height = controlView.frame.size.height;
     
     [super setWidth:TAB_WIDTH forSegment:segment];
 
