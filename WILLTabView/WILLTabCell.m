@@ -1,5 +1,12 @@
 #import "WILLTabCell.h"
-#include "ThemeConstants.h"
+
+#define TAB_HIGHLIGHT   "WILLTabCellSelectedBG"
+#define TAB_SELECTED    "WILLTabCellSelectedBG"
+#define TAB_NORMAL      "WILLTabViewBG"
+#define TAB_BORDER      "WILLTabCellSelectedBorder"
+
+#define TAB_WIDTH       33.0f
+#define TAB_HEIGHT      22.0f
 
 @implementation WILLTabCell
 
@@ -16,7 +23,7 @@
 - (void) drawSegment:(NSInteger)segment inFrame:(NSRect)frame withView:(NSView *)controlView
 {
     frame.origin.x = segment * TAB_WIDTH;
-    frame.origin.y = (BAR_HEIGHT - TAB_HEIGHT) /2 ;
+    frame.origin.y = (controlView.frame.size.height - TAB_HEIGHT) /2 ;
     frame.size.width = TAB_WIDTH;
     frame.size.height = TAB_HEIGHT;
     
@@ -48,9 +55,15 @@
     //Im sure theres a better way of doing this.
     [self setImage:[super imageForSegment:segment]];
     [[super imageForSegment:segment] setFlipped:YES];
-    [[self image] drawInRect:NSMakeRect(frame.origin.x+7, frame.origin.y+3, frame.size.width -14, frame.size.height-6)
+
+    float alpha = .8f;
+
+    if (segment == highlightedSegment) 
+        alpha = 1.f;
+    
+    [[self image] drawInRect:NSMakeRect(frame.origin.x+9, frame.origin.y+3, frame.size.width -18, frame.size.height-6)
                                        fromRect:NSZeroRect 
-                                      operation:NSCompositeSourceOver fraction:1];
+                                      operation:NSCompositeSourceOver fraction:alpha];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder;
@@ -69,10 +82,8 @@
      loc.x += frame.origin.x;
      loc.y += frame.origin.y;
      NSUInteger i = 0, count = [self segmentCount];
-     //loc = [controlView convertPoint:loc fromView:nil];
      while(i < count && frame.origin.x < controlView.frame.size.width) {
          frame.size.width = [self widthForSegment:i];
-         //NSLog(@"i:%d (%f,%f,%f,%f) (%f,%f)", i, frame.origin.x, frame.origin.y, frame.size.width, frame.size.height, loc.x, loc.y);         
          if(NSMouseInRect(loc, frame, NO))
          {
              [self setHighlightedSegment:i];
@@ -87,7 +98,6 @@
 
 - (BOOL)startTrackingAt:(NSPoint)startPoint 
                  inView:(NSView *)controlView {
-    //NSLog(@"startTrackingAt");
     [self _updateHighlightedSegment:startPoint inView:controlView];
     return [super startTrackingAt:startPoint inView:controlView];
 }
@@ -95,7 +105,6 @@
 - (BOOL)continueTracking:(NSPoint)lastPoint 
                       at:(NSPoint)currentPoint 
                   inView:(NSView *)controlView {
-    //NSLog(@"continueTracking");
     [self _updateHighlightedSegment:currentPoint inView:controlView];
     return [super continueTracking:lastPoint at:currentPoint inView:controlView];
 }
@@ -104,7 +113,6 @@
                   at:(NSPoint)stopPoint 
               inView:(NSView *)controlView 
            mouseIsUp:(BOOL)flag; {
-    //NSLog(@"stopTracking");
     
     if (highlightedSegment >= 0) {
         [self setSelectedSegment:highlightedSegment];

@@ -1,6 +1,10 @@
 #import "WILLTabView.h"
 #import "WILLTabCell.h"
-#include "ThemeConstants.h"
+
+#define LEFT_PADDING    20.0f
+#define BAR_HEIGHT      21.0f
+#define BAR_TEXTURE     "WILLTabViewBG"
+#define BORDER_COLOR	[NSColor darkGrayColor]
 
 @implementation WILLTabView
 @synthesize segmentedControl;
