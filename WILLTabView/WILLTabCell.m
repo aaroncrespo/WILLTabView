@@ -7,6 +7,7 @@
 
 #define TAB_WIDTH       33.0f
 #define TAB_HEIGHT      22.0f
+#define IMAGE_PADDING   3.0f
 
 @implementation WILLTabCell
 
@@ -48,6 +49,8 @@
         rightImage  = [NSImage imageNamed:@TAB_BORDER];
     }
 
+    NSUInteger operation = (segment == highlightedSegment) ? NSCompositePlusDarker : NSCompositeSourceOver;	
+
     NSDrawThreePartImage(frame, leftImage, middleImage, rightImage,
 						 NO, NSCompositeSourceOver, 1, YES);
    
@@ -55,18 +58,16 @@
     //Im sure theres a better way of doing this.
     [self setImage:[super imageForSegment:segment]];
     [[super imageForSegment:segment] setFlipped:YES];
+    
+    float padding = IMAGE_PADDING;
 
-    if (segment == highlightedSegment) {
-        [[self image] drawInRect:NSMakeRect(frame.origin.x+9, frame.origin.y+3, frame.size.width -18, frame.size.height-6)
-                        fromRect:NSZeroRect 
-                       operation:NSCompositePlusDarker fraction:1];
-        return ;
-    }
-
-
-    [[self image] drawInRect:NSMakeRect(frame.origin.x+9, frame.origin.y+3, frame.size.width -18, frame.size.height-6)
-                                       fromRect:NSZeroRect 
-                                      operation:NSCompositeSourceOver fraction:1];
+    [[self image] drawInRect:NSMakeRect(frame.origin.x+padding *3, 
+                                        frame.origin.y+padding, 
+                                        frame.size.width -padding *6, 
+                                        frame.size.height-padding *2)
+                    fromRect:NSZeroRect 
+                   operation:operation 
+                    fraction:1];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder;
