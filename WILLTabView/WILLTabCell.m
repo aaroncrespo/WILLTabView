@@ -3,6 +3,8 @@
 
 @implementation WILLTabCell
 
+@synthesize highlightedSegment;
+
 // TODO: monitor this for clickable area and button image alignment. 
 - (void) drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
 {
@@ -27,20 +29,19 @@
     middleImage = [NSImage imageNamed:@TAB_NORMAL];
     rightImage  = [NSImage imageNamed:@TAB_NORMAL];
        
-    if([self isSelectedForSegment:segment] && ![self isHighlighted]) 
-    {
-        leftImage   = [NSImage imageNamed:@TAB_BORDER];
-        middleImage = [NSImage imageNamed:@TAB_SELECTED];
-        rightImage  = [NSImage imageNamed:@TAB_BORDER];
-    }
-    //convert screen coordinates to segment frame coordinate or find another way.
-    if ([controlView hitTest:[NSEvent mouseLocation]] && [self mouseDownFlags]) {
+    if (highlightedSegment == segment) {
         NSLog(@"YES");
         leftImage   = [NSImage imageNamed:@TAB_BORDER];
         middleImage = [NSImage imageNamed:@TAB_SELECTED];
         rightImage  = [NSImage imageNamed:@TAB_BORDER];
     }
-      
+    else if([self isSelectedForSegment:segment] && highlightedSegment == -1) 
+    {
+        leftImage   = [NSImage imageNamed:@TAB_BORDER];
+        middleImage = [NSImage imageNamed:@TAB_SELECTED];
+        rightImage  = [NSImage imageNamed:@TAB_BORDER];
+    }
+
     NSDrawThreePartImage(frame, leftImage, middleImage, rightImage,
 						 NO, NSCompositeSourceOver, 1, YES);
    
@@ -51,6 +52,43 @@
     [[self image] drawInRect:NSMakeRect(frame.origin.x+7, frame.origin.y+3, frame.size.width -14, frame.size.height-6)
                                        fromRect:NSZeroRect 
                                       operation:NSCompositeSourceOver fraction:1];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder;
+{
+    if (![super initWithCoder:decoder])
+        return nil;
+    [self setHighlightedSegment:-1];
+    return self;
+}
+
+- (BOOL)trackMouse:(NSEvent *)event inRect:(NSRect)cellFrame ofView:(NSView *)controlView untilMouseUp:(BOOL)untilMouseUp;
+{
+    [self setHighlightedSegment:-1];
+    NSPoint loc = [event locationInWindow];
+    NSRect frame = cellFrame;
+    NSUInteger i = 0, count = [self segmentCount];
+    loc = [controlView convertPoint:loc fromView:nil];
+    while(i < count && frame.origin.x < cellFrame.size.width) {
+        
+        frame.size.width = [self widthForSegment:i];
+        if(NSMouseInRect(loc, frame, NO))
+        {
+            [self setHighlightedSegment:i];
+            break;
+        }
+        frame.origin.x+=frame.size.width;
+        i++;
+    }
+    
+    [controlView setNeedsDisplay:YES];
+    return [super trackMouse:event inRect:cellFrame ofView:controlView untilMouseUp:untilMouseUp];
+}
+
+- (void)stopTracking:(NSPoint)lastPoint at:(NSPoint)stopPoint inView:(NSView *)controlView mouseIsUp:(BOOL)flag;
+{
+    [self setHighlightedSegment:-1];
+    [super stopTracking:lastPoint at:stopPoint inView:controlView mouseIsUp:flag];
 }
 
 @end

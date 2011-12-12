@@ -7,5 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-@interface WILLTabCell : NSSegmentedCell
+@interface WILLTabCell : NSSegmentedCell {
+    NSInteger highlightedSegment;
+}
+@property(assign) NSInteger highlightedSegment;
+
 @end
