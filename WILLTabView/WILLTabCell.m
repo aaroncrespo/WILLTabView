@@ -56,14 +56,17 @@
     [self setImage:[super imageForSegment:segment]];
     [[super imageForSegment:segment] setFlipped:YES];
 
-    float alpha = .8f;
+    if (segment == highlightedSegment) {
+        [[self image] drawInRect:NSMakeRect(frame.origin.x+9, frame.origin.y+3, frame.size.width -18, frame.size.height-6)
+                        fromRect:NSZeroRect 
+                       operation:NSCompositePlusDarker fraction:1];
+        return ;
+    }
 
-    if (segment == highlightedSegment) 
-        alpha = 1.f;
-    
+
     [[self image] drawInRect:NSMakeRect(frame.origin.x+9, frame.origin.y+3, frame.size.width -18, frame.size.height-6)
                                        fromRect:NSZeroRect 
-                                      operation:NSCompositeSourceOver fraction:alpha];
+                                      operation:NSCompositeSourceOver fraction:1];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder;
