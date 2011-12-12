@@ -30,7 +30,6 @@
     rightImage  = [NSImage imageNamed:@TAB_NORMAL];
        
     if (highlightedSegment == segment) {
-        NSLog(@"YES");
         leftImage   = [NSImage imageNamed:@TAB_BORDER];
         middleImage = [NSImage imageNamed:@TAB_SELECTED];
         rightImage  = [NSImage imageNamed:@TAB_BORDER];
