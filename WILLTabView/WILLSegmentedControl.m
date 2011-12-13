@@ -18,7 +18,6 @@
 	[barImage drawInRect:NSMakeRect(0, 0, NSWidth(dirtyRect), NSHeight(dirtyRect))
                 fromRect:NSZeroRect 
                operation:NSCompositeSourceAtop fraction:1];
-    dirtyRect.origin.x +=20;
     [super drawRect:dirtyRect];
 }
 @end
