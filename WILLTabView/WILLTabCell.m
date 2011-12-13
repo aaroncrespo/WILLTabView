@@ -25,24 +25,17 @@
     frame.origin.x = segment * TAB_WIDTH;
     frame.origin.y = 0 ;
     frame.size.width = TAB_WIDTH;
-    frame.size.height = controlView.frame.size.height;
+    frame.size.height = controlView.frame.size.height-1;
     
     [super setWidth:TAB_WIDTH forSegment:segment];
 
 	NSImage *leftImage, *middleImage, *rightImage;
 
-    //fall back incase my experiments fail, it wont crash
     leftImage   = [NSImage imageNamed:@TAB_NORMAL];
     middleImage = [NSImage imageNamed:@TAB_NORMAL];
     rightImage  = [NSImage imageNamed:@TAB_NORMAL];
        
-    if (highlightedSegment == segment) {
-        leftImage   = [NSImage imageNamed:@TAB_BORDER];
-        middleImage = [NSImage imageNamed:@TAB_SELECTED];
-        rightImage  = [NSImage imageNamed:@TAB_BORDER];
-    }
-    else if([self isSelectedForSegment:segment] && highlightedSegment == -1) 
-    {
+    if ((highlightedSegment == segment) | ([self isSelectedForSegment:segment] && highlightedSegment == -1)){
         leftImage   = [NSImage imageNamed:@TAB_BORDER];
         middleImage = [NSImage imageNamed:@TAB_SELECTED];
         rightImage  = [NSImage imageNamed:@TAB_BORDER];
