@@ -12,11 +12,11 @@
 -(void)awakeFromNib {
     [segmentedControl setTarget:self];
     [segmentedControl setAction:@selector(ctrlSelected:)];
-    
     //sync external control to the internal
     [segmentedControl setSelectedSegment:[self indexOfTabViewItem:[self selectedTabViewItem]]];
-    //setup for content clipping.
-    [self setFrameSize:NSMakeSize(_frame.size.width, _frame.size.height - BAR_HEIGHT)];
+
+    //content clipping.
+    [self setFrameSize:NSMakeSize(_bounds.size.width, _bounds.size.height - BAR_HEIGHT)];
 
 }
 
@@ -30,9 +30,7 @@
 }
 
 -(void)drawRect:(NSRect)dirtyRect {
-
-    NSRect bounds = [self bounds];
-    [segmentedControl setFrame:NSMakeRect(LEFT_PADDING, NSHeight(bounds), NSWidth(bounds), BAR_HEIGHT)];
+    [segmentedControl setFrame:NSMakeRect(0, NSHeight(dirtyRect), NSWidth(dirtyRect), BAR_HEIGHT)];
     [super drawRect:dirtyRect];
 }
 #pragma mark segment control and tabview sync methods

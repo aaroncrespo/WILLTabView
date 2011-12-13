@@ -1316,9 +1316,10 @@
 								<object class="NSSegmentedControl" id="326068497">
 									<reference key="NSNextResponder" ref="744831697"/>
 									<int key="NSvFlags">268</int>
-									<string key="NSFrame">{{14, 300}, {135, 24}}</string>
+									<string key="NSFrame">{{14, 301}, {135, 23}}</string>
 									<reference key="NSSuperview" ref="744831697"/>
 									<reference key="NSWindow"/>
+									<reference key="NSNextKeyView"/>
 									<string key="NSReuseIdentifierKey">_NS:2177</string>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSSegmentedCell" key="NSCell" id="337286941">
@@ -1365,7 +1366,7 @@
 											</object>
 										</array>
 										<int key="NSSelectedSegment">1</int>
-										<int key="NSSegmentStyle">1</int>
+										<int key="NSSegmentStyle">6</int>
 									</object>
 								</object>
 								<object class="NSTabView" id="641837690">
@@ -1446,7 +1447,7 @@
 														<string key="NSFrame">{{20, 86}, {198, 178}}</string>
 														<reference key="NSSuperview" ref="152869646"/>
 														<reference key="NSWindow"/>
-														<reference key="NSNextKeyView" ref="641837690"/>
+														<reference key="NSNextKeyView"/>
 														<bool key="NSEnabled">YES</bool>
 														<object class="NSImageCell" key="NSCell" id="293437888">
 															<int key="NSCellFlags">130560</int>
@@ -1561,6 +1562,7 @@
 							<string key="NSFrameSize">{480, 360}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView" ref="641837690"/>
 							<string key="NSReuseIdentifierKey">_NS:1192</string>
 							<string key="NSClassName">NSView</string>
 						</object>
@@ -1568,7 +1570,7 @@
 					<string key="NSFrameSize">{480, 360}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
-					<reference key="NSNextKeyView" ref="641837690"/>
+					<reference key="NSNextKeyView" ref="744831697"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
@@ -3580,6 +3582,7 @@
 				<string key="538.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="539.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="540.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="548.CustomClassName">WILLSegmentedControl</string>
 				<string key="548.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="549.CustomClassName">WILLTabCell</string>
 				<integer value="3" key="549.IBNSSegmentedControlInspectorSelectedSegmentMetadataKey"/>
@@ -3684,6 +3687,14 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
+					<string key="className">WILLSegmentedControl</string>
+					<string key="superclassName">NSSegmentedControl</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/WILLSegmentedControl.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
 					<string key="className">WILLTabCell</string>
 					<string key="superclassName">NSSegmentedCell</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
@@ -3696,13 +3707,13 @@
 					<string key="superclassName">NSTabView</string>
 					<object class="NSMutableDictionary" key="outlets">
 						<string key="NS.key.0">segmentedControl</string>
-						<string key="NS.object.0">NSSegmentedControl</string>
+						<string key="NS.object.0">WIllSegmentedControl</string>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<string key="NS.key.0">segmentedControl</string>
 						<object class="IBToOneOutletInfo" key="NS.object.0">
 							<string key="name">segmentedControl</string>
-							<string key="candidateClassName">NSSegmentedControl</string>
+							<string key="candidateClassName">WIllSegmentedControl</string>
 						</object>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
