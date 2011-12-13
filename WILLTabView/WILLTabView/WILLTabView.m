@@ -1,10 +1,8 @@
 #import "WILLTabView.h"
 #import "WILLTabCell.h"
 
-#define LEFT_PADDING    20.0f
 #define BAR_HEIGHT      21.0f
-#define BAR_TEXTURE     "WILLTabViewBG"
-#define BORDER_COLOR	[NSColor darkGrayColor]
+#define LEFT_PADDING    20.0f
 
 @implementation WILLTabView
 @synthesize segmentedControl;
@@ -12,13 +10,14 @@
 #pragma mark init
 
 -(void)awakeFromNib {
-    [segmentedControl setHidden:YES];
-    [segmentedControl setSegmentCount:[self tabViewItems].count];
     [segmentedControl setTarget:self];
     [segmentedControl setAction:@selector(ctrlSelected:)];
     
     //sync external control to the internal
     [segmentedControl setSelectedSegment:[self indexOfTabViewItem:[self selectedTabViewItem]]];
+    //setup for content clipping.
+    [self setFrameSize:NSMakeSize(_frame.size.width, _frame.size.height - BAR_HEIGHT)];
+
 }
 
 -(void) dealloc {   
@@ -30,34 +29,10 @@
     [super selectTabViewItemAtIndex:[sender selectedSegment]];
 }
 
--(BOOL)isFlipped{return FALSE;}
-
-// TODO: clip content under the bar.
 -(void)drawRect:(NSRect)dirtyRect {
 
     NSRect bounds = [self bounds];
-	
-    NSRect frame;
-    frame.origin.x = 0;
-    frame.origin.y = NSHeight(bounds) - BAR_HEIGHT;
-    frame.size.width = NSWidth(bounds);
-    frame.size.height =  BAR_HEIGHT;
-
-	//Draw the bar image
-	NSImage *barImage = [NSImage imageNamed:@BAR_TEXTURE];
-    [barImage setFlipped:FALSE];
-	[barImage drawInRect:frame
-                fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1];
-
-    //Draw border, optional depending on the texture we end up using.
-	NSRect borderRect = NSMakeRect(0, NSHeight(bounds)-BAR_HEIGHT-1,NSWidth(bounds), 1);
-    [BORDER_COLOR set];
-	[NSBezierPath fillRect:borderRect];
-
-     
-    [segmentedControl setFrame:NSMakeRect(LEFT_PADDING, frame.origin.y, frame.size.width, frame.size.height)];    
-    [segmentedControl setHidden:FALSE];
-    
+    [segmentedControl setFrame:NSMakeRect(LEFT_PADDING, NSHeight(bounds), NSWidth(bounds), BAR_HEIGHT)];
     [super drawRect:dirtyRect];
 }
 #pragma mark segment control and tabview sync methods

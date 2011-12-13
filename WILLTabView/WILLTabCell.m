@@ -12,24 +12,33 @@
 
 @synthesize highlightedSegment;
 
-// TODO: monitor this for clickable area and button image alignment. 
+// TODO: monitor this for clickable area and button image alignment.
 - (void) drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
 {
-    for (int i =0 ;i < [self segmentCount]; i++) {
-            [self drawSegment:i inFrame:cellFrame withView:controlView];	
-    }
-}
+    //Draw the bar image
+    NSImage *barImage = [NSImage imageNamed:@"WILLTabViewBG"];
+    [barImage setFlipped:TRUE];
+	[barImage drawInRect:NSMakeRect(0, 0, NSWidth(cellFrame), NSHeight(cellFrame))
+                fromRect:NSZeroRect 
+               operation:NSCompositeSourceAtop fraction:1];
 
+//    NSRect buttons = NSMakeRect(LEFT_PADDING, cellFrame.origin.y, NSWidth(cellFrame), NSHeight(cellFrame));
+
+    for (int i =0 ;i < [self segmentCount]; i++) {
+        [self drawSegment:i inFrame:cellFrame withView:controlView];
+    }    
+}
 - (void) drawSegment:(NSInteger)segment inFrame:(NSRect)frame withView:(NSView *)controlView
 {
-    frame.origin.x = segment * TAB_WIDTH;
+    frame.origin.x = segment * TAB_WIDTH ;
     frame.origin.y = 0 ;
     frame.size.width = TAB_WIDTH;
-    frame.size.height = controlView.frame.size.height-1;
+    frame.size.height = controlView.frame.size.height;
     
-    [super setWidth:TAB_WIDTH forSegment:segment];
+    [self setWidth:TAB_WIDTH forSegment:segment];
 
-	NSImage *leftImage, *middleImage, *rightImage;
+	
+    NSImage *leftImage, *middleImage, *rightImage;
 
     leftImage   = [NSImage imageNamed:@TAB_NORMAL];
     middleImage = [NSImage imageNamed:@TAB_NORMAL];
@@ -44,7 +53,7 @@
     NSUInteger operation = (segment == highlightedSegment) ? NSCompositePlusDarker : NSCompositeSourceOver;	
 
     NSDrawThreePartImage(frame, leftImage, middleImage, rightImage,
-						 NO, NSCompositeSourceOver, 1, YES);
+						 NO, NSCompositeSourceOver, 1, NO);
    
     //need to add padding 
     //Im sure theres a better way of doing this.
