@@ -11,22 +11,12 @@
 @implementation WILLTabCell
 
 @synthesize highlightedSegment;
-
 // TODO: monitor this for clickable area and button image alignment.
 - (void) drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
 {
-    //Draw the bar image
-    NSImage *barImage = [NSImage imageNamed:@"WILLTabViewBG"];
-    [barImage setFlipped:TRUE];
-	[barImage drawInRect:NSMakeRect(0, 0, NSWidth(cellFrame), NSHeight(cellFrame))
-                fromRect:NSZeroRect 
-               operation:NSCompositeSourceAtop fraction:1];
-
-//    NSRect buttons = NSMakeRect(LEFT_PADDING, cellFrame.origin.y, NSWidth(cellFrame), NSHeight(cellFrame));
-
     for (int i =0 ;i < [self segmentCount]; i++) {
         [self drawSegment:i inFrame:cellFrame withView:controlView];
-    }    
+    }
 }
 - (void) drawSegment:(NSInteger)segment inFrame:(NSRect)frame withView:(NSView *)controlView
 {
@@ -55,22 +45,13 @@
     NSDrawThreePartImage(frame, leftImage, middleImage, rightImage,
 						 NO, NSCompositeSourceOver, 1, NO);
    
-    //need to add padding 
-    //Im sure theres a better way of doing this.
     [self setImage:[super imageForSegment:segment]];
     [[super imageForSegment:segment] setFlipped:YES];
     
-    float padding = IMAGE_PADDING;
-
-    [[self image] drawInRect:NSMakeRect(frame.origin.x+padding *3, 
-                                        frame.origin.y+padding, 
-                                        frame.size.width -padding *6, 
-                                        frame.size.height-padding *2)
-                    fromRect:NSZeroRect 
+    [[self image] drawInRect:[self imageRectForBounds:frame] fromRect:NSZeroRect 
                    operation:operation 
                     fraction:1];
 }
-
 - (id)initWithCoder:(NSCoder *)decoder;
 {
     if (![super initWithCoder:decoder])
