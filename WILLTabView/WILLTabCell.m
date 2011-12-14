@@ -24,8 +24,9 @@
     }
     
     //debugging drawing:
-    [super drawWithFrame:cellFrame inView:controlView];
+    //[super drawWithFrame:cellFrame inView:controlView];
 }
+
 - (void) drawSegment:(NSInteger)segment inFrame:(NSRect)frame withView:(NSView *)controlView
 {
     frame.origin.x = (segment * TAB_WIDTH) + LEFT_PADDING;
@@ -37,29 +38,29 @@
 
     [super setWidth:TAB_WIDTH forSegment:segment];
 	
-//    NSImage *leftImage, *middleImage, *rightImage;
-//
-//    leftImage   = [NSImage imageNamed:@TAB_NORMAL];
-//    middleImage = [NSImage imageNamed:@TAB_NORMAL];
-//    rightImage  = [NSImage imageNamed:@TAB_NORMAL];
-//       
-//    if ((highlightedSegment == segment) | ([self isSelectedForSegment:segment] && highlightedSegment == -1)){
-//        leftImage   = [NSImage imageNamed:@TAB_BORDER];
-//        middleImage = [NSImage imageNamed:@TAB_SELECTED];
-//        rightImage  = [NSImage imageNamed:@TAB_BORDER];
-//    }
-//
-//    NSUInteger operation = (segment == highlightedSegment) ? NSCompositePlusDarker : NSCompositeSourceOver;	
-//
-//    NSDrawThreePartImage(frame, leftImage, middleImage, rightImage,
-//						 NO, NSCompositeSourceOver, 1, NO);
-//   
-//    [self setImage:[super imageForSegment:segment]];
-//    [[self imageForSegment:segment] setFlipped:YES];
-//    
-//    [[self image] drawInRect:[self imageRectForBounds:frame] fromRect:NSZeroRect 
-//                   operation:operation 
-//                    fraction:1];
+    NSImage *leftImage, *middleImage, *rightImage;
+
+    leftImage   = [NSImage imageNamed:@TAB_NORMAL];
+    middleImage = [NSImage imageNamed:@TAB_NORMAL];
+    rightImage  = [NSImage imageNamed:@TAB_NORMAL];
+       
+    if ((highlightedSegment == segment) | ([self isSelectedForSegment:segment] && highlightedSegment == -1)){
+        leftImage   = [NSImage imageNamed:@TAB_BORDER];
+        middleImage = [NSImage imageNamed:@TAB_SELECTED];
+        rightImage  = [NSImage imageNamed:@TAB_BORDER];
+    }
+
+    NSUInteger operation = (segment == highlightedSegment) ? NSCompositePlusDarker : NSCompositeSourceOver;	
+
+    NSDrawThreePartImage(frame, leftImage, middleImage, rightImage,
+						 NO, NSCompositeSourceOver, 1, NO);
+   
+    [self setImage:[super imageForSegment:segment]];
+    [[self imageForSegment:segment] setFlipped:YES];
+    
+    [[self image] drawInRect:[self imageRectForBounds:frame] fromRect:NSZeroRect 
+                   operation:operation 
+                    fraction:1];
 }
 - (id)initWithCoder:(NSCoder *)decoder;
 {

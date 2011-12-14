@@ -11,8 +11,6 @@
 -(void)awakeFromNib {
     // Setup segmented control
     segmentedControl = [[WILLSegmentedControl alloc] init];
-    [segmentedControl setTarget:self];
-    [segmentedControl setAction:@selector(ctrlSelected:)];
     [segmentedControl setCell:[[WILLTabCell alloc] init]];    
     [segmentedControl setSegmentCount:self.numberOfTabViewItems];
     for (int i=0; i < self.numberOfTabViewItems; i++) {
@@ -20,6 +18,9 @@
         [segmentedControl setImage:[NSImage imageNamed:[[self tabViewItemAtIndex:i] label]] forSegment:i];
     }    
     [segmentedControl setSelectedSegment:[self indexOfTabViewItem:[self selectedTabViewItem]]];
+    [segmentedControl setTarget:self];
+    [segmentedControl setAction:@selector(ctrlSelected:)];
+    
     [[self superview] addSubview:segmentedControl];
     [segmentedControl setFrame:NSMakeRect(0, self.frame.size.height-BAR_HEIGHT, self.frame.size.width, BAR_HEIGHT)];
     
