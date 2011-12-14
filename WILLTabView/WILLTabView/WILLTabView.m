@@ -23,7 +23,8 @@
     
     [[self superview] addSubview:segmentedControl];
     [segmentedControl setFrame:NSMakeRect(0, self.frame.size.height-BAR_HEIGHT, self.frame.size.width, BAR_HEIGHT)];
-    
+    [segmentedControl setAutoresizingMask:(NSViewMinXMargin | NSViewMinYMargin | 
+                                           NSViewMaxXMargin | NSViewMaxYMargin | NSViewWidthSizable)];
     //content clipping.
     [self setFrameSize:NSMakeSize(_bounds.size.width, _bounds.size.height - BAR_HEIGHT)];
 }
