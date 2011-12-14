@@ -17,7 +17,7 @@
 
     //content clipping.
     [self setFrameSize:NSMakeSize(_bounds.size.width, _bounds.size.height - BAR_HEIGHT)];
-
+    [segmentedControl setFrame:NSMakeRect(0, self.frame.size.height, self.frame.size.width, BAR_HEIGHT)];
 }
 
 -(void) dealloc {   
@@ -29,10 +29,6 @@
     [super selectTabViewItemAtIndex:[sender selectedSegment]];
 }
 
--(void)drawRect:(NSRect)dirtyRect {
-    [segmentedControl setFrame:NSMakeRect(0, NSHeight(dirtyRect), NSWidth(dirtyRect), BAR_HEIGHT)];
-    [super drawRect:dirtyRect];
-}
 #pragma mark segment control and tabview sync methods
 
 -(void)selectTabViewItem:(NSTabViewItem *)tabViewItem {
