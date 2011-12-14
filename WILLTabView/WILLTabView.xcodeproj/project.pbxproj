@@ -10,7 +10,6 @@
 		97AD26CB1491758200CDC4DB /* WILLTabCellSelectedBG.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 97AD26C81491758200CDC4DB /* WILLTabCellSelectedBG.pdf */; };
 		97AD26CC1491758200CDC4DB /* WILLTabCellSelectedBorder.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 97AD26C91491758200CDC4DB /* WILLTabCellSelectedBorder.pdf */; };
 		97AD26CD1491758200CDC4DB /* WILLTabViewBG.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 97AD26CA1491758200CDC4DB /* WILLTabViewBG.pdf */; };
-		97AD27A71497E1BB00CDC4DB /* WILLSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 97AD27A51497E1BB00CDC4DB /* WILLSegmentedControl.m */; };
 		97E9B2CE148EA477001D1D01 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97E9B2CD148EA477001D1D01 /* Cocoa.framework */; };
 		97E9B2D8148EA477001D1D01 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 97E9B2D6148EA477001D1D01 /* InfoPlist.strings */; };
 		97E9B2DA148EA477001D1D01 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E9B2D9148EA477001D1D01 /* main.m */; };
@@ -31,8 +30,6 @@
 		97AD26C81491758200CDC4DB /* WILLTabCellSelectedBG.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WILLTabCellSelectedBG.pdf; sourceTree = "<group>"; };
 		97AD26C91491758200CDC4DB /* WILLTabCellSelectedBorder.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WILLTabCellSelectedBorder.pdf; sourceTree = "<group>"; };
 		97AD26CA1491758200CDC4DB /* WILLTabViewBG.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WILLTabViewBG.pdf; sourceTree = "<group>"; };
-		97AD27A41497E1BB00CDC4DB /* WILLSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WILLSegmentedControl.h; path = ../WILLSegmentedControl.h; sourceTree = "<group>"; };
-		97AD27A51497E1BB00CDC4DB /* WILLSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WILLSegmentedControl.m; path = ../WILLSegmentedControl.m; sourceTree = "<group>"; };
 		97E9B2C9148EA477001D1D01 /* WILLTabView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WILLTabView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E9B2CD148EA477001D1D01 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		97E9B2D0148EA477001D1D01 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -115,8 +112,6 @@
 				97E9B2E2148EA477001D1D01 /* MainMenu.xib */,
 				97FB5ABE14914DA600CBBA3A /* WILLTabCell.h */,
 				97FB5ABF14914DA600CBBA3A /* WILLTabCell.m */,
-				97AD27A41497E1BB00CDC4DB /* WILLSegmentedControl.h */,
-				97AD27A51497E1BB00CDC4DB /* WILLSegmentedControl.m */,
 				97E9B2F0148EA568001D1D01 /* WILLTabView.h */,
 				97E9B2F1148EA568001D1D01 /* WILLTabView.m */,
 				97E9B2D4148EA477001D1D01 /* Supporting Files */,
@@ -229,7 +224,6 @@
 				97E9B2E1148EA477001D1D01 /* AppDelegate.m in Sources */,
 				97E9B2F2148EA568001D1D01 /* WILLTabView.m in Sources */,
 				97FB5AC014914DA600CBBA3A /* WILLTabCell.m in Sources */,
-				97AD27A71497E1BB00CDC4DB /* WILLSegmentedControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
