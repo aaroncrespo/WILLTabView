@@ -5,24 +5,27 @@
 #define LEFT_PADDING    20.0f
 
 @implementation WILLTabView
-@synthesize segmentedControl;
 
 #pragma mark init
 
 -(void)awakeFromNib {
+    segmentedControl = [[WILLSegmentedControl alloc] init];
     [segmentedControl setTarget:self];
     [segmentedControl setAction:@selector(ctrlSelected:)];
     //sync external control to the internal
+    [segmentedControl setSegmentCount:self.numberOfTabViewItems];
+    for (int i=0; i < self.numberOfTabViewItems; i++) {
+        //[segmentedControl setLabel:[[self tabViewItemAtIndex:i] label] forSegment:i];
+        [segmentedControl setImage:[NSImage imageNamed:[[self tabViewItemAtIndex:i] label]] forSegment:i];
+    }    
     [segmentedControl setSelectedSegment:[self indexOfTabViewItem:[self selectedTabViewItem]]];
-
+    [[self superview] addSubview:segmentedControl];
+    [segmentedControl setFrame:NSMakeRect(0, self.frame.size.height, self.frame.size.width, BAR_HEIGHT)];
+    
     //content clipping.
     [self setFrameSize:NSMakeSize(_bounds.size.width, _bounds.size.height - BAR_HEIGHT)];
-    [segmentedControl setFrame:NSMakeRect(0, self.frame.size.height, self.frame.size.width, BAR_HEIGHT)];
 }
 
--(void) dealloc {   
-    self.segmentedControl = nil;
-}
 #pragma mark Callback - link our segementedControl to the tabViewItems
 
 -(IBAction)ctrlSelected:(NSSegmentedControl *)sender {
