@@ -14,7 +14,7 @@
     [segmentedControl setAction:@selector(ctrlSelected:)];
     //sync external control to the internal
     [segmentedControl setSelectedSegment:[self indexOfTabViewItem:[self selectedTabViewItem]]];
-    [segmentedControl setFrame:NSMakeRect(20, self.bounds.size.height-BAR_HEIGHT, self.bounds.size.width-20, BAR_HEIGHT)];
+    [segmentedControl setFrame:NSMakeRect(LEFT_PADDING, self.bounds.size.height-BAR_HEIGHT, self.bounds.size.width-LEFT_PADDING, BAR_HEIGHT)];
     
     //content clipping.
     [self setFrameSize:NSMakeSize(_bounds.size.width, _bounds.size.height - BAR_HEIGHT)];
@@ -33,7 +33,7 @@
 -(void)drawRect:(NSRect)dirtyRect {
     NSImage *barImage = [NSImage imageNamed:@"WILLTabViewBG"];
     [barImage setFlipped:TRUE];
-    [barImage drawInRect:NSMakeRect(0, self.bounds.size.height-BAR_HEIGHT, self.bounds.size.width-20, BAR_HEIGHT)
+    [barImage drawInRect:NSMakeRect(0, self.bounds.size.height-BAR_HEIGHT, self.bounds.size.width-LEFT_PADDING, BAR_HEIGHT)
                 fromRect:NSZeroRect 
                operation:NSCompositeSourceAtop fraction:1];
  
