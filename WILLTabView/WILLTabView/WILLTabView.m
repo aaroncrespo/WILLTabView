@@ -9,10 +9,11 @@
 #pragma mark init
 
 -(void)awakeFromNib {
+    // Setup segmented control
     segmentedControl = [[WILLSegmentedControl alloc] init];
     [segmentedControl setTarget:self];
     [segmentedControl setAction:@selector(ctrlSelected:)];
-    //sync external control to the internal
+    [segmentedControl setCell:[[WILLTabCell alloc] init]];    
     [segmentedControl setSegmentCount:self.numberOfTabViewItems];
     for (int i=0; i < self.numberOfTabViewItems; i++) {
         //[segmentedControl setLabel:[[self tabViewItemAtIndex:i] label] forSegment:i];
