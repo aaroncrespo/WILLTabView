@@ -10,11 +10,6 @@
 #import "WILLTabCell.h"
 
 @implementation WILLSegmentedControl
--(void)awakeFromNib
-{
-    NSRect bounds = [super bounds];
-    [self setBounds:NSMakeRect(-20, 0, NSWidth(bounds), NSHeight(bounds))];
-}
 -(void)drawRect:(NSRect)dirtyRect
 {    
 
