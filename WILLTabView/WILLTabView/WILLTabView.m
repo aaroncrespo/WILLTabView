@@ -21,7 +21,7 @@
     }    
     [segmentedControl setSelectedSegment:[self indexOfTabViewItem:[self selectedTabViewItem]]];
     [[self superview] addSubview:segmentedControl];
-    [segmentedControl setFrame:NSMakeRect(0, self.frame.size.height, self.frame.size.width, BAR_HEIGHT)];
+    [segmentedControl setFrame:NSMakeRect(0, self.frame.size.height-BAR_HEIGHT, self.frame.size.width, BAR_HEIGHT)];
     
     //content clipping.
     [self setFrameSize:NSMakeSize(_bounds.size.width, _bounds.size.height - BAR_HEIGHT)];
