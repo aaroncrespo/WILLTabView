@@ -10,14 +10,19 @@
 #import "WILLTabCell.h"
 
 @implementation WILLSegmentedControl
+-(void)awakeFromNib
+{
+    NSRect bounds = [super bounds];
+    [self setBounds:NSMakeRect(-20, 0, NSWidth(bounds), NSHeight(bounds))];
+}
 -(void)drawRect:(NSRect)dirtyRect
 {    
 
     NSImage *barImage = [NSImage imageNamed:@"WILLTabViewBG"];
     [barImage setFlipped:TRUE];
-	[barImage drawInRect:NSMakeRect(0, 0, NSWidth(dirtyRect), NSHeight(dirtyRect))
+	[barImage drawInRect:NSMakeRect(0, 0, NSWidth([self bounds]), NSHeight([self bounds]))
                 fromRect:NSZeroRect 
                operation:NSCompositeSourceAtop fraction:1];
-    [super drawRect:dirtyRect];
+    [super drawRect:[self bounds]];
 }
 @end

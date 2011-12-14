@@ -12,6 +12,10 @@
 @implementation WILLTabCell
 
 @synthesize highlightedSegment;
+- (void) awakeFromNib
+{
+
+}
 // TODO: monitor this for clickable area and button image alignment.
 - (void) drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
 {
