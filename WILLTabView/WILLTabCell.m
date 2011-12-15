@@ -22,14 +22,11 @@
     for (int i =0 ;i < [self segmentCount]; i++) {
         [self drawSegment:i inFrame:cellFrame withView:controlView];
     }
-    
-    //debugging drawing:
-    //[super drawWithFrame:cellFrame inView:controlView];
 }
 
 - (void) drawSegment:(NSInteger)segment inFrame:(NSRect)frame withView:(NSView *)controlView
 {
-    frame.origin.x = (segment * TAB_WIDTH) + LEFT_PADDING;
+    frame.origin.x = (segment * TAB_WIDTH);
     frame.origin.y = 0 ;
     frame.size.width = TAB_WIDTH;
     frame.size.height = controlView.frame.size.height;
@@ -53,7 +50,7 @@
     NSUInteger operation = (segment == highlightedSegment) ? NSCompositePlusDarker : NSCompositeSourceOver;	
 
     NSDrawThreePartImage(frame, leftImage, middleImage, rightImage,
-						 NO, NSCompositeSourceOver, 1, NO);
+						 NO, NSCompositeSourceOver, 1, YES);
    
     [self setImage:[super imageForSegment:segment]];
     [[self imageForSegment:segment] setFlipped:YES];
