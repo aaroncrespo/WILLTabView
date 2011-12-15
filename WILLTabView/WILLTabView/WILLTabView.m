@@ -5,16 +5,9 @@
 #define LEFT_PADDING    20.0f
 
 @implementation WILLTabView
-@synthesize barView;
+
 #pragma mark init
-
 -(void)awakeFromNib {
-    //setup BG
-    barView = [[WILLTabBg alloc] init];    
-    [barView setFrame:NSMakeRect(0, self.frame.size.height-BAR_HEIGHT, self.frame.size.width, BAR_HEIGHT)];
-    [barView setAutoresizingMask:NSViewWidthSizable|NSViewMinYMargin];
-    [[super superview] addSubview:barView];
-
     // Setup segmented control
     segmentedControl = [[NSSegmentedControl alloc] init];
     [segmentedControl setSegmentStyle:NSSegmentStyleTexturedSquare];
@@ -72,5 +65,12 @@
    [super removeTabViewItem:anItem];
    [self awakeFromNib];
    [self setNeedsDisplay:YES];
+}
+
+- (void)drawRect:(NSRect)dirtyRect {
+    NSImage *barImage = [NSImage imageNamed:@"WILLTabViewBG"];
+    [barImage drawInRect:NSMakeRect(0, 0, self.frame.size.width, BAR_HEIGHT)
+                fromRect:NSZeroRect 
+               operation:NSCompositeSourceOver fraction:1];
 }
 @end

@@ -9,10 +9,8 @@
 #import <Cocoa/Cocoa.h>
 #import <Cocoa/Cocoa.h>
 #import <QuartzCore/QuartzCore.h>
-#import "WILLTabBg.h"
 
 @interface WILLTabView : NSTabView {
     NSSegmentedControl *segmentedControl;    
 }
-@property (strong) WILLTabBg *barView;
 @end
