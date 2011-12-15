@@ -31,8 +31,6 @@
     frame.size.width = TAB_WIDTH;
     frame.size.height = controlView.frame.size.height;
 
-    [super cellSizeForBounds:frame];
-
     [super setWidth:TAB_WIDTH forSegment:segment];
 	
     NSImage *leftImage, *middleImage, *rightImage;
@@ -107,8 +105,10 @@
                   at:(NSPoint)stopPoint 
               inView:(NSView *)controlView 
            mouseIsUp:(BOOL)flag; {
-    
+
+    [super stopTracking:lastPoint at:stopPoint inView:controlView mouseIsUp:flag];
     if (highlightedSegment >= 0) {
+        
         [self setSelectedSegment:highlightedSegment];
         if ([self.target respondsToSelector:self.action]) {
 #pragma clang diagnostic push
@@ -119,7 +119,6 @@
     }
     
     [self setHighlightedSegment:-1];
-    [super stopTracking:lastPoint at:stopPoint inView:controlView mouseIsUp:flag];
 }
 
 @end
