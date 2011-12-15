@@ -18,12 +18,13 @@
     for (int i=0; i < self.numberOfTabViewItems; i++) {
         [segmentedControl setImage:[NSImage imageNamed:[[self tabViewItemAtIndex:i] label]] forSegment:i];
     } 
-    [segmentedControl setFrame:NSMakeRect(LEFT_PADDING, 0, self.frame.size.width, BAR_HEIGHT)];
     [segmentedControl setAutoresizingMask:NSViewMinYMargin];
     [self addSubview:segmentedControl];
     
 	[self setTabViewType:NSNoTabsNoBorder];    
 	[self setDrawsBackground:NO];
+    [segmentedControl setFrame:NSMakeRect(LEFT_PADDING, 0, self.frame.size.width, BAR_HEIGHT)];
+
 }
 
 - (NSSize)minimumSize {
