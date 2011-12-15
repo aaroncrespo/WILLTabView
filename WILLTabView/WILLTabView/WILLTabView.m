@@ -10,25 +10,28 @@
 -(void)awakeFromNib {
     // Setup segmented control
     segmentedControl = [[NSSegmentedControl alloc] init];
-    [segmentedControl setSegmentStyle:NSSegmentStyleTexturedSquare];
-    [segmentedControl setCell:[[WILLTabCell alloc] init]];  
+    [segmentedControl setCell:[[WILLTabCell alloc] init]];    
     [segmentedControl setSegmentCount:self.numberOfTabViewItems];   
     [segmentedControl setTarget:self];
     [segmentedControl setAction:@selector(ctrlSelected:)];
-
+    [segmentedControl setSelectedSegment:[self indexOfTabViewItem:[self selectedTabViewItem]]];
     for (int i=0; i < self.numberOfTabViewItems; i++) {
         [segmentedControl setImage:[NSImage imageNamed:[[self tabViewItemAtIndex:i] label]] forSegment:i];
     } 
-
-    [segmentedControl setFrame:NSMakeRect(LEFT_PADDING, 0, self.frame.size.width, BAR_HEIGHT)];
+    [segmentedControl setFrame:NSMakeRect(LEFT_PADDING, 5, self.frame.size.width, BAR_HEIGHT)];
     [segmentedControl setAutoresizingMask:NSViewMinYMargin];
+    [self addSubview:segmentedControl];
+    
+	[self setTabViewType:NSNoTabsNoBorder];
+	//[self setDrawsBackground:NO];
+}
 
-    [barView addSubview:segmentedControl];
+- (NSSize)minimumSize {
+    return NSMakeSize(0, BAR_HEIGHT);
+}
 
-    //clipping
-    [self setFrameSize:NSMakeSize([self bounds].size.width, [self bounds].size.height - BAR_HEIGHT)];
-    [segmentedControl setSelectedSegment:[self indexOfTabViewItem:[self selectedTabViewItem]]];
-
+- (NSRect)contentRect {
+    return NSMakeRect(0, BAR_HEIGHT, self.frame.size.width, self.frame.size.height-BAR_HEIGHT);
 }
 
 #pragma mark Callback - link our segementedControl to the tabViewItems
@@ -37,7 +40,7 @@
     [super selectTabViewItemAtIndex:[sender selectedSegment]];
 }
 
-#pragma mark Keep tabs on what gets selected - so our own segmentedControl stays synced.
+#pragma mark segment control and tabview sync methods
 
 -(void)selectTabViewItem:(NSTabViewItem *)tabViewItem {
     [super selectTabViewItem:tabViewItem];
