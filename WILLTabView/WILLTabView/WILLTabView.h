@@ -10,8 +10,8 @@
 #import <Cocoa/Cocoa.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface WILLTabView : NSView {
-    IBOutlet NSTabView *tabView;
+@interface WILLTabView : NSTabView {
+//    IBOutlet NSTabView *tabView;
     NSSegmentedControl *segmentedControl;    
 }
 @property (strong) NSView *barView;

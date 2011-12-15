@@ -12,27 +12,27 @@
     // Setup segmented control
     segmentedControl = [[NSSegmentedControl alloc] init];
     [segmentedControl setCell:[[WILLTabCell alloc] init]];    
-    [segmentedControl setSegmentCount:tabView.numberOfTabViewItems];
-    for (int i=0; i < tabView.numberOfTabViewItems; i++) {
-        //[segmentedControl setLabel:[[self tabViewItemAtIndex:i] label] forSegment:i];
-        [segmentedControl setImage:[NSImage imageNamed:[[tabView tabViewItemAtIndex:i] label]] forSegment:i];
-    }    
+    [segmentedControl setSegmentCount:self.numberOfTabViewItems];   
     [segmentedControl setTarget:self];
     [segmentedControl setAction:@selector(ctrlSelected:)];
-    [segmentedControl setSelectedSegment:[tabView indexOfTabViewItem:[tabView selectedTabViewItem]]];
-    [self addSubview:segmentedControl];
+    [segmentedControl setSelectedSegment:[self indexOfTabViewItem:[self selectedTabViewItem]]];
+    for (int i=0; i < self.numberOfTabViewItems; i++) {
+        //[segmentedControl setLabel:[[self tabViewItemAtIndex:i] label] forSegment:i];
+        [segmentedControl setImage:[NSImage imageNamed:[[self tabViewItemAtIndex:i] label]] forSegment:i];
+    } 
+    [[super superview] addSubview:segmentedControl];
 
     barView =  [[NSView alloc] init];    
-    [barView setFrame:NSMakeRect(0,self.frame.size.height-BAR_HEIGHT,self.frame.size.width, BAR_HEIGHT)];
+    [barView setFrame:NSMakeRect(0,0,self.frame.size.width, BAR_HEIGHT)];
     [barView setAutoresizingMask:NSViewWidthSizable|NSViewMinYMargin];
-    [self addSubview:barView];
+    [[super superview] addSubview:barView];
 
  
-    [segmentedControl setFrame:NSMakeRect(20, self.frame.size.height-BAR_HEIGHT, self.frame.size.width, BAR_HEIGHT)];
+    [segmentedControl setFrame:NSMakeRect(LEFT_PADDING, self.frame.size.height-BAR_HEIGHT, self.frame.size.width, BAR_HEIGHT)];
     [segmentedControl setAutoresizingMask:NSViewMinYMargin];
 
-
-    [tabView setFrameSize:NSMakeSize(_bounds.size.width, _bounds.size.height - BAR_HEIGHT)];
+    //clipping
+    [self setFrameSize:NSMakeSize(_bounds.size.width, _bounds.size.height - BAR_HEIGHT)];
     
 
 }
@@ -50,36 +50,36 @@
 #pragma mark Callback - link our segementedControl to the tabViewItems
 
 -(void)ctrlSelected:(NSSegmentedControl *)sender {
-    [tabView selectTabViewItemAtIndex:[sender selectedSegment]];
+    [super selectTabViewItemAtIndex:[sender selectedSegment]];
 }
 
 #pragma mark segment control and tabview sync methods
 
 -(void)selectTabViewItem:(NSTabViewItem *)tabViewItem {
-   [tabView selectTabViewItem:tabViewItem];
-   [segmentedControl setSelectedSegment:[tabView indexOfTabViewItem:[tabView selectedTabViewItem]]];
+   [super selectTabViewItem:tabViewItem];
+   [segmentedControl setSelectedSegment:[self indexOfTabViewItem:[self selectedTabViewItem]]];
 }
 
 -(void)selectTabViewItemAtIndex:(NSInteger)index {
-   [tabView selectTabViewItemAtIndex:index];
-   [segmentedControl setSelectedSegment:[tabView indexOfTabViewItem:[tabView selectedTabViewItem]]];
+   [super selectTabViewItemAtIndex:index];
+   [segmentedControl setSelectedSegment:[self indexOfTabViewItem:[self selectedTabViewItem]]];
 }
 
 -(void)selectTabViewItemWithIdentifier:(id)identifier {
-   [tabView selectTabViewItemWithIdentifier:identifier];
-   [segmentedControl setSelectedSegment:[tabView indexOfTabViewItem:[tabView selectedTabViewItem]]];    
+   [super selectTabViewItemWithIdentifier:identifier];
+   [segmentedControl setSelectedSegment:[self indexOfTabViewItem:[self selectedTabViewItem]]];    
 }
 // skipping selectNext/PreviousTabViewItem - hoping they use above.
 
 -(void)addTabViewItem:(NSTabViewItem *)anItem {
-   [tabView addTabViewItem:anItem];
+   [self addTabViewItem:anItem];
    [self awakeFromNib];
-   [tabView setNeedsDisplay:YES];
+   [self setNeedsDisplay:YES];
 }
 
 -(void)removeTabViewItem:(NSTabViewItem *)anItem {
-   [tabView removeTabViewItem:anItem];
+   [self removeTabViewItem:anItem];
    [self awakeFromNib];
-   [tabView setNeedsDisplay:YES];
+   [self setNeedsDisplay:YES];
 }
 @end
