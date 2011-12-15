@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		970FBE38149A73A0008C981D /* WILLTabBg.m in Sources */ = {isa = PBXBuildFile; fileRef = 970FBE37149A73A0008C981D /* WILLTabBg.m */; };
 		97AD26CB1491758200CDC4DB /* WILLTabCellSelectedBG.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 97AD26C81491758200CDC4DB /* WILLTabCellSelectedBG.pdf */; };
 		97AD26CC1491758200CDC4DB /* WILLTabCellSelectedBorder.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 97AD26C91491758200CDC4DB /* WILLTabCellSelectedBorder.pdf */; };
 		97AD26CD1491758200CDC4DB /* WILLTabViewBG.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 97AD26CA1491758200CDC4DB /* WILLTabViewBG.pdf */; };
@@ -27,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		970FBE36149A73A0008C981D /* WILLTabBg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WILLTabBg.h; path = ../WILLTabBg.h; sourceTree = "<group>"; };
+		970FBE37149A73A0008C981D /* WILLTabBg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WILLTabBg.m; path = ../WILLTabBg.m; sourceTree = "<group>"; };
 		97AD26C81491758200CDC4DB /* WILLTabCellSelectedBG.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WILLTabCellSelectedBG.pdf; sourceTree = "<group>"; };
 		97AD26C91491758200CDC4DB /* WILLTabCellSelectedBorder.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WILLTabCellSelectedBorder.pdf; sourceTree = "<group>"; };
 		97AD26CA1491758200CDC4DB /* WILLTabViewBG.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WILLTabViewBG.pdf; sourceTree = "<group>"; };
@@ -110,6 +113,8 @@
 				97E9B2DF148EA477001D1D01 /* AppDelegate.h */,
 				97E9B2E0148EA477001D1D01 /* AppDelegate.m */,
 				97E9B2E2148EA477001D1D01 /* MainMenu.xib */,
+				970FBE36149A73A0008C981D /* WILLTabBg.h */,
+				970FBE37149A73A0008C981D /* WILLTabBg.m */,
 				97FB5ABE14914DA600CBBA3A /* WILLTabCell.h */,
 				97FB5ABF14914DA600CBBA3A /* WILLTabCell.m */,
 				97E9B2F0148EA568001D1D01 /* WILLTabView.h */,
@@ -224,6 +229,7 @@
 				97E9B2E1148EA477001D1D01 /* AppDelegate.m in Sources */,
 				97E9B2F2148EA568001D1D01 /* WILLTabView.m in Sources */,
 				97FB5AC014914DA600CBBA3A /* WILLTabCell.m in Sources */,
+				970FBE38149A73A0008C981D /* WILLTabBg.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

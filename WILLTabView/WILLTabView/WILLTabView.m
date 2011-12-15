@@ -9,6 +9,12 @@
 #pragma mark init
 
 -(void)awakeFromNib {
+    //setup BG
+    barView = [[WILLTabBg alloc] init];    
+    [barView setFrame:NSMakeRect(0, self.frame.size.height-BAR_HEIGHT, self.frame.size.width, BAR_HEIGHT)];
+    [barView setAutoresizingMask:NSViewWidthSizable|NSViewMinYMargin];
+    [[super superview] addSubview:barView];
+
     // Setup segmented control
     segmentedControl = [[NSSegmentedControl alloc] init];
     [segmentedControl setCell:[[WILLTabCell alloc] init]];    
@@ -20,33 +26,14 @@
         //[segmentedControl setLabel:[[self tabViewItemAtIndex:i] label] forSegment:i];
         [segmentedControl setImage:[NSImage imageNamed:[[self tabViewItemAtIndex:i] label]] forSegment:i];
     } 
-    [[super superview] addSubview:segmentedControl];
-
-    barView =  [[NSView alloc] init];    
-    [barView setFrame:NSMakeRect(0,0,self.frame.size.width, BAR_HEIGHT)];
-    [barView setAutoresizingMask:NSViewWidthSizable|NSViewMinYMargin];
-    [[super superview] addSubview:barView];
-
- 
-    [segmentedControl setFrame:NSMakeRect(LEFT_PADDING, self.frame.size.height-BAR_HEIGHT, self.frame.size.width, BAR_HEIGHT)];
+    [segmentedControl setFrame:NSMakeRect(LEFT_PADDING, 0, self.frame.size.width, BAR_HEIGHT)];
     [segmentedControl setAutoresizingMask:NSViewMinYMargin];
+    [barView addSubview:segmentedControl];
 
     //clipping
-    [self setFrameSize:NSMakeSize(_bounds.size.width, _bounds.size.height - BAR_HEIGHT)];
-    
-
+    [self setFrameSize:NSMakeSize([self bounds].size.width, [self bounds].size.height - BAR_HEIGHT)];
 }
--(void)drawRect:(NSRect)dirtyRect
-{
-    if (barView !=nil) {
-        NSImage *barImage = [NSImage imageNamed:@"WILLTabViewBG"];
-//        [barImage setFlipped:YES];
-        [barImage drawInRect:(barView.frame)
-                    fromRect:NSZeroRect 
-                   operation:NSCompositeSourceOver fraction:1];
 
-    }
-}
 #pragma mark Callback - link our segementedControl to the tabViewItems
 
 -(void)ctrlSelected:(NSSegmentedControl *)sender {
