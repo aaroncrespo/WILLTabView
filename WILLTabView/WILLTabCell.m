@@ -48,7 +48,7 @@
     NSUInteger operation = (segment == highlightedSegment) ? NSCompositePlusDarker : NSCompositeSourceOver;	
 
     NSDrawThreePartImage(frame, leftImage, middleImage, rightImage,
-						 NO, NSCompositeSourceOver, 1, YES);
+						 NO, NSCompositeSourceOver, 1, NO);
    
     [self setImage:[super imageForSegment:segment]];
     [[self imageForSegment:segment] setFlipped:YES];

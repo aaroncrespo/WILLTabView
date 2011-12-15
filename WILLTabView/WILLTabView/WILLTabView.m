@@ -72,6 +72,7 @@
 
 - (void)drawRect:(NSRect)dirtyRect {
     NSImage *barImage = [NSImage imageNamed:@"WILLTabViewBG"];
+    [barImage setFlipped:YES];
     [barImage drawInRect:NSMakeRect(0, 0, self.frame.size.width, BAR_HEIGHT)
                 fromRect:NSZeroRect 
                operation:NSCompositeSourceOver fraction:1];

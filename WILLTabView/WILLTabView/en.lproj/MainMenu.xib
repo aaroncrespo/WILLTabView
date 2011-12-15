@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1070</int>
-		<string key="IBDocument.SystemVersion">11C74</string>
+		<string key="IBDocument.SystemVersion">11C26</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1938</string>
-		<string key="IBDocument.AppKitVersion">1138.23</string>
-		<string key="IBDocument.HIToolboxVersion">567.00</string>
+		<string key="IBDocument.AppKitVersion">1138.11</string>
+		<string key="IBDocument.HIToolboxVersion">566.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			<string key="NS.object.0">1938</string>
@@ -1309,7 +1309,7 @@
 						<object class="NSTabView" id="641837690">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">18</int>
-							<string key="NSFrame">{{-8, -10}, {566, 427}}</string>
+							<string key="NSFrameSize">{550, 411}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="272935200"/>
@@ -1352,7 +1352,7 @@
 												<bool key="NSEditable">YES</bool>
 											</object>
 										</array>
-										<string key="NSFrame">{{10, 33}, {546, 381}}</string>
+										<string key="NSFrame">{{10, 33}, {530, 365}}</string>
 										<reference key="NSSuperview" ref="641837690"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="245633836"/>
@@ -1389,7 +1389,6 @@
 												</set>
 												<string key="NSFrame">{{-36, 128}, {198, 178}}</string>
 												<reference key="NSSuperview" ref="152869646"/>
-												<reference key="NSNextKeyView"/>
 												<bool key="NSEnabled">YES</bool>
 												<object class="NSImageCell" key="NSCell" id="293437888">
 													<int key="NSCellFlags">130560</int>
@@ -1433,7 +1432,6 @@
 												</set>
 												<string key="NSFrame">{{-6, 180}, {134, 118}}</string>
 												<reference key="NSSuperview" ref="143835969"/>
-												<reference key="NSNextKeyView"/>
 												<bool key="NSEnabled">YES</bool>
 												<object class="NSImageCell" key="NSCell" id="65012176">
 													<int key="NSCellFlags">130560</int>
@@ -1521,7 +1519,7 @@
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="641837690"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {2560, 1418}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
