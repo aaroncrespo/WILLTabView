@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		82803B77149A8E6800E01207 /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 82803B76149A8E6800E01207 /* TestView.m */; };
+		82D15D6F149C059F0089FF1E /* WILLSubTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D15D6E149C059F0089FF1E /* WILLSubTabView.m */; };
 		97AD26CB1491758200CDC4DB /* WILLTabCellSelectedBG.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 97AD26C81491758200CDC4DB /* WILLTabCellSelectedBG.pdf */; };
 		97AD26CC1491758200CDC4DB /* WILLTabCellSelectedBorder.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 97AD26C91491758200CDC4DB /* WILLTabCellSelectedBorder.pdf */; };
 		97AD26CD1491758200CDC4DB /* WILLTabViewBG.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 97AD26CA1491758200CDC4DB /* WILLTabViewBG.pdf */; };
@@ -30,6 +31,8 @@
 /* Begin PBXFileReference section */
 		82803B75149A8E6800E01207 /* TestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestView.h; sourceTree = "<group>"; };
 		82803B76149A8E6800E01207 /* TestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestView.m; sourceTree = "<group>"; };
+		82D15D6D149C059F0089FF1E /* WILLSubTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WILLSubTabView.h; sourceTree = "<group>"; };
+		82D15D6E149C059F0089FF1E /* WILLSubTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WILLSubTabView.m; sourceTree = "<group>"; };
 		97AD26C81491758200CDC4DB /* WILLTabCellSelectedBG.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WILLTabCellSelectedBG.pdf; sourceTree = "<group>"; };
 		97AD26C91491758200CDC4DB /* WILLTabCellSelectedBorder.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WILLTabCellSelectedBorder.pdf; sourceTree = "<group>"; };
 		97AD26CA1491758200CDC4DB /* WILLTabViewBG.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WILLTabViewBG.pdf; sourceTree = "<group>"; };
@@ -117,6 +120,8 @@
 				97FB5ABF14914DA600CBBA3A /* WILLTabCell.m */,
 				97E9B2F0148EA568001D1D01 /* WILLTabView.h */,
 				97E9B2F1148EA568001D1D01 /* WILLTabView.m */,
+				82D15D6D149C059F0089FF1E /* WILLSubTabView.h */,
+				82D15D6E149C059F0089FF1E /* WILLSubTabView.m */,
 				82803B75149A8E6800E01207 /* TestView.h */,
 				82803B76149A8E6800E01207 /* TestView.m */,
 				97E9B2D4148EA477001D1D01 /* Supporting Files */,
@@ -230,6 +235,7 @@
 				97E9B2F2148EA568001D1D01 /* WILLTabView.m in Sources */,
 				97FB5AC014914DA600CBBA3A /* WILLTabCell.m in Sources */,
 				82803B77149A8E6800E01207 /* TestView.m in Sources */,
+				82D15D6F149C059F0089FF1E /* WILLSubTabView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
