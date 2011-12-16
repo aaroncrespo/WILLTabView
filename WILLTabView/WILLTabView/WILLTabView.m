@@ -18,6 +18,7 @@
     for (int i=0; i < self.numberOfTabViewItems; i++) {
         [segmentedControl setImage:[NSImage imageNamed:[[self tabViewItemAtIndex:i] label]] forSegment:i];
     } 
+    [segmentedControl setSegmentStyle:NSSegmentStyleTexturedSquare];
     [segmentedControl setAutoresizingMask:NSViewMinYMargin];
     [self addSubview:segmentedControl];
     
