@@ -12,5 +12,6 @@
 
 @interface WILLTabView : NSTabView {
     NSSegmentedControl *segmentedControl;    
+    NSImage *barImage;
 }
 @end

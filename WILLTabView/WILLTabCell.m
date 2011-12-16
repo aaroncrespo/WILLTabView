@@ -4,10 +4,7 @@
 #define TAB_SELECTED    "WILLTabCellSelectedBG"
 #define TAB_NORMAL      "WILLTabViewBG"
 #define TAB_BORDER      "WILLTabCellSelectedBorder"
-
 #define TAB_WIDTH       33.0f
-#define IMAGE_PADDING   3.0f
-#define LEFT_PADDING    15.f
 
 @implementation WILLTabCell
 

@@ -1,39 +1,40 @@
 #import "WILLTabView.h"
 #import "WILLTabCell.h"
 
-#define BAR_HEIGHT      21.0f
-#define LEFT_PADDING    20.0f
-
 @implementation WILLTabView
 
-#pragma mark init
--(void)awakeFromNib {
-    // Setup segmented control
-    segmentedControl = [[NSSegmentedControl alloc] init];
-    [segmentedControl setCell:[[WILLTabCell alloc] init]];    
-    [segmentedControl setSegmentCount:self.numberOfTabViewItems];   
-    [segmentedControl setTarget:self];
-    [segmentedControl setAction:@selector(ctrlSelected:)];
-    [segmentedControl setSelectedSegment:[self indexOfTabViewItem:[self selectedTabViewItem]]];
-    for (int i=0; i < self.numberOfTabViewItems; i++) {
-        [segmentedControl setImage:[NSImage imageNamed:[[self tabViewItemAtIndex:i] label]] forSegment:i];
-    } 
-    [segmentedControl setSegmentStyle:NSSegmentStyleTexturedSquare];
-    [segmentedControl setAutoresizingMask:NSViewMinYMargin];
-    [self addSubview:segmentedControl];
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        barImage = [NSImage imageNamed:@"WILLTabViewBG"];
+        // Setup segmented control
+        segmentedControl = [[NSSegmentedControl alloc] init];
+        [segmentedControl setCell:[[WILLTabCell alloc] init]];    
+        [segmentedControl setSegmentCount:self.numberOfTabViewItems];   
+        [segmentedControl setTarget:self];
+        [segmentedControl setAction:@selector(ctrlSelected:)];
+        [segmentedControl setSelectedSegment:[self indexOfTabViewItem:[self selectedTabViewItem]]];
+        for (int i=0; i < self.numberOfTabViewItems; i++) {
+            [segmentedControl setImage:[NSImage imageNamed:[[self tabViewItemAtIndex:i] label]] forSegment:i];
+        } 
+        [segmentedControl setSegmentStyle:NSSegmentStyleTexturedSquare];
+        [segmentedControl setAutoresizingMask:NSViewMinYMargin];
+        [self addSubview:segmentedControl];
+        
+        [self setTabViewType:NSNoTabsNoBorder];    
+        [self setDrawsBackground:NO];
+        
+        [segmentedControl setFrame:NSMakeRect(20, 0, self.frame.size.width, barImage.size.height)];
+    }
     
-	[self setTabViewType:NSNoTabsNoBorder];    
-	[self setDrawsBackground:NO];
-    [segmentedControl setFrame:NSMakeRect(LEFT_PADDING, 0, self.frame.size.width, BAR_HEIGHT)];
-
+    return self;
 }
 
 - (NSSize)minimumSize {
-    return NSMakeSize(0, BAR_HEIGHT);
+    return NSMakeSize(0, barImage.size.height);
 }
 
 - (NSRect)contentRect {
-    return NSMakeRect(0, BAR_HEIGHT, self.frame.size.width, self.frame.size.height-BAR_HEIGHT);
+    return NSMakeRect(0, barImage.size.height, self.frame.size.width, self.frame.size.height-barImage.size.height);
 }
 
 #pragma mark Callback - link our segementedControl to the tabViewItems
@@ -73,9 +74,8 @@
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
-    NSImage *barImage = [NSImage imageNamed:@"WILLTabViewBG"];
     [barImage setFlipped:YES];
-    [barImage drawInRect:NSMakeRect(0, 0, self.frame.size.width, BAR_HEIGHT)
+    [barImage drawInRect:NSMakeRect(0, 0, self.frame.size.width, barImage.size.height)
                 fromRect:NSZeroRect 
                operation:NSCompositeSourceOver fraction:1];
 }
