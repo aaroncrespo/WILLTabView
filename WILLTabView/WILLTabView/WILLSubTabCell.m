@@ -31,27 +31,28 @@
     [self setWidth:frame.size.width forSegment:seg];
     
     NSBezierPath* drawingPath = [NSBezierPath bezierPath];
-    [drawingPath appendBezierPathWithRoundedRect:NSInsetRect(frame, 2, 2) xRadius:10 yRadius:10];
-    [[NSColor colorWithCalibratedRed:0 green:0 blue:0 alpha:.4] setFill];
+    [drawingPath appendBezierPathWithRoundedRect:NSInsetRect(frame, 4, 3) xRadius:8 yRadius:8];
+    [[NSColor colorWithCalibratedRed:0 green:0 blue:0 alpha:.3] setFill];
     if (seg == highlightedSegment || [self isSelectedForSegment:seg]) {
         [drawingPath fill]; 
         [drawingPath setLineWidth:1];  
-        [[NSColor colorWithCalibratedRed:0 green:0 blue:0 alpha:.1] set];
+        [[NSColor colorWithCalibratedRed:0 green:0 blue:0 alpha:.31] set];
         [drawingPath stroke];        
     }
-
+    
     NSMutableParagraphStyle *paragraph;
     paragraph = [[NSMutableParagraphStyle alloc] init];
     [paragraph setLineBreakMode:NSLineBreakByTruncatingTail];
     [paragraph setAlignment:NSCenterTextAlignment];
     
+    NSColor *textColor = seg == highlightedSegment || [self isSelectedForSegment:seg] ? [NSColor whiteColor] : [NSColor blackColor];
     NSDictionary *labelAttr = [NSDictionary dictionaryWithObjectsAndKeys:
-                                                         [NSFont systemFontOfSize:[NSFont smallSystemFontSize]], NSFontAttributeName, 
-                               [self isSelectedForSegment:seg] ? [NSColor whiteColor] : [NSColor blackColor], NSForegroundColorAttributeName, 
-                                                         //shadow, NSShadowAttributeName, 
-                                                         paragraph, NSParagraphStyleAttributeName, nil];
+                               [NSFont boldSystemFontOfSize:10], NSFontAttributeName, 
+                               textColor, NSForegroundColorAttributeName, 
+                               //shadow, NSShadowAttributeName, 
+                               paragraph, NSParagraphStyleAttributeName, nil];
     NSAttributedString *attrStr = [[NSAttributedString alloc] initWithString:label attributes:labelAttr];
-    [attrStr drawInRect:NSInsetRect(frame, 2, 3)];
+    [attrStr drawInRect:NSInsetRect(frame, 2, 4)];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder;
