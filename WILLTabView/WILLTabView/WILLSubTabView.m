@@ -1,4 +1,5 @@
 #import "WILLSubTabView.h"
+#import "WILLSubTabCell.h"
 
 @implementation WILLSubTabView
 
@@ -7,7 +8,7 @@
         barImage = [NSImage imageNamed:@"WILLTabViewBG"];
         // Setup segmented control
         segmentedControl = [[NSSegmentedControl alloc] init];
-        //[segmentedControl setCell:[[WILLTabCell alloc] init]];    
+        [segmentedControl setCell:[[WILLSubTabCell alloc] init]];    
         [segmentedControl setSegmentCount:self.numberOfTabViewItems];   
         [segmentedControl setTarget:self];
         [segmentedControl setAction:@selector(ctrlSelected:)];
