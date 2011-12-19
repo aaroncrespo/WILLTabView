@@ -8,9 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface WILLSubTabCell : NSSegmentedCell {
-    NSInteger highlightedSegment;
-}
-@property(assign) NSInteger highlightedSegment;
+@interface WILLSubTabCell : NSSegmentedCell
+
+@property(assign, nonatomic) NSInteger mouseOverSegment;
+@property(assign, nonatomic) NSInteger mouseDownSegment;
 
 @end

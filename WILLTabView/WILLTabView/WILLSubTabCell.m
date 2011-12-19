@@ -1,5 +1,5 @@
 #import "WILLSubTabCell.h"
-
+#import "WILLSubTabView.h"
 #define TAB_HIGHLIGHT   "WILLTabCellSelectedBG"
 #define TAB_SELECTED    "WILLTabCellSelectedBG"
 #define TAB_NORMAL      "WILLTabViewBG"
@@ -7,7 +7,18 @@
 
 @implementation WILLSubTabCell
 
-@synthesize highlightedSegment;
+@synthesize mouseDownSegment;
+@synthesize mouseOverSegment;
+- (void) setSelectedSegment:(NSInteger)o {
+    [super setSelectedSegment:o];
+    mouseOverSegment = -1;
+    mouseDownSegment = -1;
+}
+- (void) setMouseDownSegment:(NSInteger)o {
+    mouseDownSegment = o;
+    mouseOverSegment = -1;
+}
+
 - (void) drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
 {
     for (int i =0 ;i < [self segmentCount]; i++) {
@@ -25,27 +36,41 @@
     }
     frame.origin.x = totalWidth;
     frame.origin.y = 0 ;
-    frame.size.width = textSize.width+20;
+    frame.size.width = textSize.width+16;
     frame.size.height = controlView.frame.size.height;    
     
     [self setWidth:frame.size.width forSegment:seg];
     
     NSBezierPath* drawingPath = [NSBezierPath bezierPath];
     [drawingPath appendBezierPathWithRoundedRect:NSInsetRect(frame, 4, 3) xRadius:8 yRadius:8];
-    [[NSColor colorWithCalibratedRed:0 green:0 blue:0 alpha:.3] setFill];
-    if (seg == highlightedSegment || [self isSelectedForSegment:seg]) {
+    [NSGraphicsContext saveGraphicsState];
+    NSShadow* theShadow = [[NSShadow alloc] init];
+    [theShadow setShadowOffset:NSMakeSize(0, 1)];
+    [theShadow setShadowBlurRadius:0.0];
+    
+    if (seg == mouseDownSegment || [self isSelectedForSegment:seg]) {
+        [theShadow setShadowColor:[[NSColor blackColor]                                   
+                                   colorWithAlphaComponent:.5]];        
+        [theShadow set];        
+        [[NSColor colorWithCalibratedRed:0.5 green:0.5 blue:0.5 alpha:1] setFill];                
         [drawingPath fill]; 
-        [drawingPath setLineWidth:1];  
-        [[NSColor colorWithCalibratedRed:0 green:0 blue:0 alpha:.31] set];
-        [drawingPath stroke];        
     }
+    else if (mouseOverSegment == seg) {
+        [theShadow setShadowColor:[NSColor colorWithCalibratedRed:0.7 green:0.7 blue:0.7 alpha:1]];        
+        [theShadow set];                
+        [[NSColor colorWithCalibratedRed:0.6 green:0.6 blue:0.6 alpha:1] setFill];        
+        [drawingPath fill];         
+    }
+    
+    [NSGraphicsContext restoreGraphicsState];
+    
     
     NSMutableParagraphStyle *paragraph;
     paragraph = [[NSMutableParagraphStyle alloc] init];
     [paragraph setLineBreakMode:NSLineBreakByTruncatingTail];
     [paragraph setAlignment:NSCenterTextAlignment];
     
-    NSColor *textColor = seg == highlightedSegment || [self isSelectedForSegment:seg] ? [NSColor whiteColor] : [NSColor blackColor];
+    NSColor *textColor = mouseOverSegment == seg || seg == mouseDownSegment || [self isSelectedForSegment:seg] ? [NSColor whiteColor] : [NSColor blackColor];
     NSDictionary *labelAttr = [NSDictionary dictionaryWithObjectsAndKeys:
                                [NSFont boldSystemFontOfSize:10], NSFontAttributeName, 
                                textColor, NSForegroundColorAttributeName, 
@@ -59,13 +84,14 @@
 {
     if (![super initWithCoder:decoder])
         return nil;
-    [self setHighlightedSegment:-1];
+    [self setMouseDownSegment:-1];
+    [self setMouseOverSegment:-1];    
     return self;
 }
 
-- (void)_updateHighlightedSegment:(NSPoint)currentPoint
-                           inView:(NSView *)controlView {
-    [self setHighlightedSegment:-1];
+- (void)_updateMouseDownSegment:(NSPoint)currentPoint
+                         inView:(NSView *)controlView 
+{
     NSPoint loc = currentPoint;
     NSRect frame = controlView.frame;
     loc.x += frame.origin.x;
@@ -75,26 +101,27 @@
         frame.size.width = [self widthForSegment:i];
         if(NSMouseInRect(loc, frame, NO))
         {
-            [self setHighlightedSegment:i];
-            break;
+            [self setMouseDownSegment:i];
+            [controlView setNeedsDisplay:YES];
+            return;
         }
         frame.origin.x += frame.size.width;
         i++;
     }
-    
-    [controlView setNeedsDisplay:YES];
+    [self setMouseDownSegment:-1];    
+    [controlView setNeedsDisplay:YES];    
 }
 
 - (BOOL)startTrackingAt:(NSPoint)startPoint 
                  inView:(NSView *)controlView {
-    [self _updateHighlightedSegment:startPoint inView:controlView];
+    [self _updateMouseDownSegment:startPoint inView:controlView];
     return [super startTrackingAt:startPoint inView:controlView];
 }
 
 - (BOOL)continueTracking:(NSPoint)lastPoint 
                       at:(NSPoint)currentPoint 
                   inView:(NSView *)controlView {
-    [self _updateHighlightedSegment:currentPoint inView:controlView];
+    [self _updateMouseDownSegment:currentPoint inView:controlView];
     return [super continueTracking:lastPoint at:currentPoint inView:controlView];
 }
 
@@ -105,9 +132,8 @@
            mouseIsUp:(BOOL)flag; {
     
     [super stopTracking:lastPoint at:stopPoint inView:controlView mouseIsUp:flag];
-    if (highlightedSegment >= 0) {
-        
-        [self setSelectedSegment:highlightedSegment];
+    if (mouseDownSegment >= 0) {
+        [self setSelectedSegment:mouseDownSegment];
         if ([self.target respondsToSelector:self.action]) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
@@ -116,7 +142,7 @@
         }
     }
     
-    [self setHighlightedSegment:-1];
+    [controlView setNeedsDisplay:YES];
 }
 
 @end

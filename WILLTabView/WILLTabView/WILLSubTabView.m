@@ -2,7 +2,6 @@
 #import "WILLSubTabCell.h"
 
 @implementation WILLSubTabView
-
 -(id)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {
         barImage = [NSImage imageNamed:@"WILLTabViewBG"];
@@ -24,6 +23,10 @@
         [self setDrawsBackground:NO];
         
         [segmentedControl setFrame:NSMakeRect(20, 0, self.frame.size.width, barImage.size.height)];
+        
+        NSTrackingArea *newArea = [[NSTrackingArea alloc] initWithRect:segmentedControl.bounds options:(NSTrackingMouseEnteredAndExited | NSTrackingMouseMoved | NSTrackingActiveInKeyWindow) owner:self userInfo:nil];
+        
+        [segmentedControl addTrackingArea:newArea];        
     }
     
     return self;
@@ -79,4 +82,25 @@
                 fromRect:NSZeroRect 
                operation:NSCompositeSourceOver fraction:1];
 }
+
+- (void)mouseMoved:(NSEvent *)theEvent { 
+    NSPoint location = [segmentedControl convertPoint:[theEvent locationInWindow] fromView:nil];
+    int closestSegment = -1;
+    float currX = 0;
+    for (int i=0; i < [segmentedControl segmentCount]; i++) {
+        if (location.x >= currX && location.x <= currX+[[segmentedControl cell] widthForSegment:i]) {
+            closestSegment = i; break;
+        }
+        currX += [[segmentedControl cell] widthForSegment:i];
+    }
+    //NSLog(@"closestSegment: %d", closestSegment);
+    [[segmentedControl cell] setMouseOverSegment:closestSegment];
+    [segmentedControl setNeedsDisplay:YES];
+}
+
+- (void)mouseExited:(NSEvent *)theEvent {
+    [[segmentedControl cell] setMouseOverSegment:-1];
+    [segmentedControl setNeedsDisplay:YES];    
+}
+
 @end
