@@ -17,7 +17,7 @@
             [segmentedControl setImage:[NSImage imageNamed:[[self tabViewItemAtIndex:i] label]] forSegment:i];
         } 
         [segmentedControl setSegmentStyle:NSSegmentStyleTexturedSquare];
-        [segmentedControl setAutoresizingMask:NSViewMinYMargin];
+        [segmentedControl setAutoresizingMask:NSViewMaxYMargin];
         [self addSubview:segmentedControl];
         
         [self setTabViewType:NSNoTabsNoBorder];    
